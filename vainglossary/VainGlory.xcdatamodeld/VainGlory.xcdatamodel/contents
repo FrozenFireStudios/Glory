@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16D32" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Character" representedClassName="Character" syncable="YES">
+        <attribute name="buildsString" attributeType="String" syncable="YES"/>
+        <attribute name="id" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="rolesString" attributeType="String" syncable="YES"/>
+        <attribute name="serverName" attributeType="String" syncable="YES"/>
+        <relationship name="matchUps" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MatchUp" inverseName="character" inverseEntity="MatchUp" syncable="YES"/>
+        <relationship name="participants" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Participant" inverseName="character" inverseEntity="Participant" syncable="YES"/>
+        <relationship name="reverseMatchUps" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MatchUp" inverseName="otherCharacter" inverseEntity="MatchUp" syncable="YES"/>
+    </entity>
+    <entity name="Item" representedClassName="Item" syncable="YES">
+        <attribute name="aliasesString" attributeType="String" syncable="YES"/>
+        <attribute name="cost" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="itemDescription" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="tier" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="typesString" attributeType="String" syncable="YES"/>
+        <relationship name="participants" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Participant" inverseName="items" inverseEntity="Participant" syncable="YES"/>
+    </entity>
+    <entity name="Match" representedClassName="Match" syncable="YES">
+        <attribute name="duration" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id" attributeType="String" syncable="YES"/>
+        <relationship name="participants" toMany="YES" deletionRule="Nullify" destinationEntity="Participant" inverseName="match" inverseEntity="Participant" syncable="YES"/>
+    </entity>
+    <entity name="MatchUp" representedClassName="MatchUp" syncable="YES">
+        <attribute name="againstValue" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="withValue" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="character" maxCount="1" deletionRule="Nullify" destinationEntity="Character" inverseName="matchUps" inverseEntity="Character" syncable="YES"/>
+        <relationship name="otherCharacter" maxCount="1" deletionRule="Nullify" destinationEntity="Character" inverseName="reverseMatchUps" inverseEntity="Character" syncable="YES"/>
+    </entity>
+    <entity name="Participant" representedClassName="Participant" syncable="YES">
+        <attribute name="assists" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="deaths" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id" attributeType="String" syncable="YES"/>
+        <attribute name="kills" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="playerName" attributeType="String" syncable="YES"/>
+        <attribute name="won" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="character" maxCount="1" deletionRule="Nullify" destinationEntity="Character" inverseName="participants" inverseEntity="Character" syncable="YES"/>
+        <relationship name="items" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="participants" inverseEntity="Item" syncable="YES"/>
+        <relationship name="match" maxCount="1" deletionRule="Nullify" destinationEntity="Match" inverseName="participants" inverseEntity="Match" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Character" positionX="-63" positionY="-18" width="128" height="165"/>
+        <element name="MatchUp" positionX="-54" positionY="-9" width="128" height="105"/>
+        <element name="Match" positionX="-36" positionY="9" width="128" height="90"/>
+        <element name="Item" positionX="-18" positionY="27" width="128" height="165"/>
+        <element name="Participant" positionX="0" positionY="45" width="128" height="180"/>
+    </elements>
+</model>

@@ -11,6 +11,7 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
+    var database: Database!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -18,18 +19,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             fatalError("API Key required")
         }
         
-        let service = NetworkingService(apiKey: apiKey, baseURL: URL(string: "https://api.dc01.gamelockerapp.com/")!)
-//        service.makeRequest(request: MatchRequest(id: UUID(uuidString: "57045080-fba9-11e6-a758-0671096b3e30")!)) { (result) in
+        database = Database(madGloryAPIKey: apiKey)
+//        database.madGloryService.makeRequest(request: MatchRequest(id: UUID(uuidString: "57045080-fba9-11e6-a758-0671096b3e30")!)) { (result) in
 //            print("")
 //        }
         
-        service.makeRequest(request: MatchesRequest()) { (result) in
+        database.madGloryService.makeRequest(request: MatchesRequest()) { (result) in
             print("")
         }
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = .black
-        window?.rootViewController = ViewController(service: service)
+        window?.rootViewController = ViewController()
         window?.makeKeyAndVisible()
         
         return true

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class NetworkingService {
+class MadGloryService {
     private let apiKey: String
     private let baseURL: URL
     private let session: URLSession

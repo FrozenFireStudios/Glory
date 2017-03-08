@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2CAEFE0C1E6FC2F400ED702C /* NSManagedObjectContext+PerformAndReturn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAEFE0B1E6FC2F400ED702C /* NSManagedObjectContext+PerformAndReturn.swift */; };
 		2CF1DADB1E622E84006AA193 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1DADA1E622E84006AA193 /* AppDelegate.swift */; };
 		2CF1DADD1E622E84006AA193 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1DADC1E622E84006AA193 /* ViewController.swift */; };
 		2CF1DAE21E622E84006AA193 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CF1DAE11E622E84006AA193 /* Assets.xcassets */; };
 		2CF1DAE51E622E84006AA193 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CF1DAE31E622E84006AA193 /* LaunchScreen.storyboard */; };
 		2CF1DAF01E622E84006AA193 /* vainglossaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1DAEF1E622E84006AA193 /* vainglossaryTests.swift */; };
-		2CF1DAFB1E623110006AA193 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1DAFA1E623110006AA193 /* NetworkingService.swift */; };
+		2CF1DAFB1E623110006AA193 /* MadGloryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1DAFA1E623110006AA193 /* MadGloryService.swift */; };
 		2CF1DAFD1E623303006AA193 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1DAFC1E623303006AA193 /* Result.swift */; };
 		2CF1DAFF1E62370A006AA193 /* VainGloryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1DAFE1E62370A006AA193 /* VainGloryRequest.swift */; };
 		2CF1DB051E62390F006AA193 /* URLPathComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1DB041E62390F006AA193 /* URLPathComponent.swift */; };
@@ -22,6 +23,19 @@
 		2CF1DB171E62A0EF006AA193 /* Relationship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1DB161E62A0EF006AA193 /* Relationship.swift */; };
 		2CF1DB191E62A105006AA193 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1DB181E62A105006AA193 /* Object.swift */; };
 		2CF1DB1B1E62A234006AA193 /* ObjectType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1DB1A1E62A234006AA193 /* ObjectType.swift */; };
+		2CF1DB1F1E6FB158006AA193 /* VainGlory.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1DB1D1E6FB158006AA193 /* VainGlory.xcdatamodeld */; };
+		2CF1DB3E1E6FB654006AA193 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1DB341E6FB654006AA193 /* Item.swift */; };
+		2CF1DB401E6FB654006AA193 /* MatchUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1DB361E6FB654006AA193 /* MatchUp.swift */; };
+		2CF1DB421E6FB654006AA193 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1DB381E6FB654006AA193 /* Match.swift */; };
+		2CF1DB441E6FB654006AA193 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1DB3A1E6FB654006AA193 /* Character.swift */; };
+		2CF1DB461E6FB654006AA193 /* Participant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1DB3C1E6FB654006AA193 /* Participant.swift */; };
+		2CF1DB491E6FB8B7006AA193 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1DB481E6FB8B7006AA193 /* Entity.swift */; };
+		2CF1DB4B1E6FBA62006AA193 /* Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1DB4A1E6FBA62006AA193 /* Build.swift */; };
+		2CF1DB4D1E6FBA88006AA193 /* Role.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1DB4C1E6FBA88006AA193 /* Role.swift */; };
+		2CF1DB4F1E6FBF8B006AA193 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1DB4E1E6FBF8B006AA193 /* Database.swift */; };
+		2CF1DB531E6FBFD3006AA193 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1DB501E6FBFD3006AA193 /* CoreDataStack.swift */; };
+		2CF1DB541E6FBFD3006AA193 /* InMemoryStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1DB511E6FBFD3006AA193 /* InMemoryStack.swift */; };
+		2CF1DB551E6FBFD3006AA193 /* ResettingStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1DB521E6FBFD3006AA193 /* ResettingStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2CAEFE0B1E6FC2F400ED702C /* NSManagedObjectContext+PerformAndReturn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+PerformAndReturn.swift"; sourceTree = "<group>"; };
 		2CF1DAD71E622E84006AA193 /* vainglossary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vainglossary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CF1DADA1E622E84006AA193 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CF1DADC1E622E84006AA193 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -44,7 +59,7 @@
 		2CF1DAEB1E622E84006AA193 /* vainglossaryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = vainglossaryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CF1DAEF1E622E84006AA193 /* vainglossaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vainglossaryTests.swift; sourceTree = "<group>"; };
 		2CF1DAF11E622E84006AA193 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2CF1DAFA1E623110006AA193 /* NetworkingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
+		2CF1DAFA1E623110006AA193 /* MadGloryService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MadGloryService.swift; sourceTree = "<group>"; };
 		2CF1DAFC1E623303006AA193 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		2CF1DAFE1E62370A006AA193 /* VainGloryRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VainGloryRequest.swift; sourceTree = "<group>"; };
 		2CF1DB041E62390F006AA193 /* URLPathComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLPathComponent.swift; sourceTree = "<group>"; };
@@ -54,6 +69,19 @@
 		2CF1DB161E62A0EF006AA193 /* Relationship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Relationship.swift; sourceTree = "<group>"; };
 		2CF1DB181E62A105006AA193 /* Object.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
 		2CF1DB1A1E62A234006AA193 /* ObjectType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectType.swift; sourceTree = "<group>"; };
+		2CF1DB1E1E6FB158006AA193 /* VainGlory.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VainGlory.xcdatamodel; sourceTree = "<group>"; };
+		2CF1DB341E6FB654006AA193 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		2CF1DB361E6FB654006AA193 /* MatchUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchUp.swift; sourceTree = "<group>"; };
+		2CF1DB381E6FB654006AA193 /* Match.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
+		2CF1DB3A1E6FB654006AA193 /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		2CF1DB3C1E6FB654006AA193 /* Participant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Participant.swift; sourceTree = "<group>"; };
+		2CF1DB481E6FB8B7006AA193 /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
+		2CF1DB4A1E6FBA62006AA193 /* Build.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Build.swift; sourceTree = "<group>"; };
+		2CF1DB4C1E6FBA88006AA193 /* Role.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Role.swift; sourceTree = "<group>"; };
+		2CF1DB4E1E6FBF8B006AA193 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		2CF1DB501E6FBFD3006AA193 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		2CF1DB511E6FBFD3006AA193 /* InMemoryStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InMemoryStack.swift; sourceTree = "<group>"; };
+		2CF1DB521E6FBFD3006AA193 /* ResettingStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResettingStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +102,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2CAEFE091E6FC2D300ED702C /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				2CF1DB3A1E6FB654006AA193 /* Character.swift */,
+				2CF1DB341E6FB654006AA193 /* Item.swift */,
+				2CF1DB381E6FB654006AA193 /* Match.swift */,
+				2CF1DB361E6FB654006AA193 /* MatchUp.swift */,
+				2CF1DB3C1E6FB654006AA193 /* Participant.swift */,
+			);
+			name = Entities;
+			sourceTree = "<group>";
+		};
+		2CAEFE0A1E6FC2DE00ED702C /* Conveniences */ = {
+			isa = PBXGroup;
+			children = (
+				2CF1DB481E6FB8B7006AA193 /* Entity.swift */,
+				2CAEFE0B1E6FC2F400ED702C /* NSManagedObjectContext+PerformAndReturn.swift */,
+			);
+			name = Conveniences;
+			sourceTree = "<group>";
+		};
 		2CF1DACE1E622E84006AA193 = {
 			isa = PBXGroup;
 			children = (
@@ -119,7 +168,8 @@
 		2CF1DB001E623713006AA193 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				2CF1DAFA1E623110006AA193 /* NetworkingService.swift */,
+				2CF1DB4E1E6FBF8B006AA193 /* Database.swift */,
+				2CF1DAFA1E623110006AA193 /* MadGloryService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -127,8 +177,11 @@
 		2CF1DB021E623730006AA193 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				2CF1DB131E626CE0006AA193 /* Objects */,
+				2CF1DB1C1E6FB133006AA193 /* CoreData */,
+				2CF1DB131E626CE0006AA193 /* MadGlory */,
 				2CF1DB031E623736006AA193 /* Requests */,
+				2CF1DB4A1E6FBA62006AA193 /* Build.swift */,
+				2CF1DB4C1E6FBA88006AA193 /* Role.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -152,7 +205,7 @@
 			name = Conveniences;
 			sourceTree = "<group>";
 		};
-		2CF1DB131E626CE0006AA193 /* Objects */ = {
+		2CF1DB131E626CE0006AA193 /* MadGlory */ = {
 			isa = PBXGroup;
 			children = (
 				2CF1DB181E62A105006AA193 /* Object.swift */,
@@ -160,7 +213,28 @@
 				2CF1DB1A1E62A234006AA193 /* ObjectType.swift */,
 				2CF1DB161E62A0EF006AA193 /* Relationship.swift */,
 			);
-			name = Objects;
+			name = MadGlory;
+			sourceTree = "<group>";
+		};
+		2CF1DB1C1E6FB133006AA193 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				2CF1DB1D1E6FB158006AA193 /* VainGlory.xcdatamodeld */,
+				2CAEFE0A1E6FC2DE00ED702C /* Conveniences */,
+				2CAEFE091E6FC2D300ED702C /* Entities */,
+				2CF1DB561E6FBFD7006AA193 /* Stacks */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		2CF1DB561E6FBFD7006AA193 /* Stacks */ = {
+			isa = PBXGroup;
+			children = (
+				2CF1DB501E6FBFD3006AA193 /* CoreDataStack.swift */,
+				2CF1DB511E6FBFD3006AA193 /* InMemoryStack.swift */,
+				2CF1DB521E6FBFD3006AA193 /* ResettingStack.swift */,
+			);
+			name = Stacks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,17 +340,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CF1DB1B1E62A234006AA193 /* ObjectType.swift in Sources */,
+				2CF1DB531E6FBFD3006AA193 /* CoreDataStack.swift in Sources */,
 				2CF1DB051E62390F006AA193 /* URLPathComponent.swift in Sources */,
+				2CF1DB4B1E6FBA62006AA193 /* Build.swift in Sources */,
 				2CF1DB151E628385006AA193 /* ObjectData.swift in Sources */,
-				2CF1DAFB1E623110006AA193 /* NetworkingService.swift in Sources */,
+				2CF1DAFB1E623110006AA193 /* MadGloryService.swift in Sources */,
 				2CF1DAFF1E62370A006AA193 /* VainGloryRequest.swift in Sources */,
 				2CF1DB0A1E6247CB006AA193 /* MatchesRequest.swift in Sources */,
+				2CF1DB421E6FB654006AA193 /* Match.swift in Sources */,
+				2CF1DB4D1E6FBA88006AA193 /* Role.swift in Sources */,
+				2CF1DB3E1E6FB654006AA193 /* Item.swift in Sources */,
+				2CF1DB441E6FB654006AA193 /* Character.swift in Sources */,
+				2CF1DB541E6FBFD3006AA193 /* InMemoryStack.swift in Sources */,
 				2CF1DADD1E622E84006AA193 /* ViewController.swift in Sources */,
+				2CF1DB4F1E6FBF8B006AA193 /* Database.swift in Sources */,
 				2CF1DB0C1E6249D4006AA193 /* MatchRequest.swift in Sources */,
+				2CF1DB461E6FB654006AA193 /* Participant.swift in Sources */,
+				2CF1DB551E6FBFD3006AA193 /* ResettingStack.swift in Sources */,
 				2CF1DB171E62A0EF006AA193 /* Relationship.swift in Sources */,
+				2CF1DB1F1E6FB158006AA193 /* VainGlory.xcdatamodeld in Sources */,
+				2CF1DB401E6FB654006AA193 /* MatchUp.swift in Sources */,
 				2CF1DAFD1E623303006AA193 /* Result.swift in Sources */,
+				2CF1DB491E6FB8B7006AA193 /* Entity.swift in Sources */,
 				2CF1DADB1E622E84006AA193 /* AppDelegate.swift in Sources */,
 				2CF1DB191E62A105006AA193 /* Object.swift in Sources */,
+				2CAEFE0C1E6FC2F400ED702C /* NSManagedObjectContext+PerformAndReturn.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,6 +560,7 @@
 				2CF1DAF61E622E84006AA193 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2CF1DAF71E622E84006AA193 /* Build configuration list for PBXNativeTarget "vainglossaryTests" */ = {
 			isa = XCConfigurationList;
@@ -480,8 +569,22 @@
 				2CF1DAF91E622E84006AA193 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2CF1DB1D1E6FB158006AA193 /* VainGlory.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2CF1DB1E1E6FB158006AA193 /* VainGlory.xcdatamodel */,
+			);
+			currentVersion = 2CF1DB1E1E6FB158006AA193 /* VainGlory.xcdatamodel */;
+			path = VainGlory.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2CF1DACF1E622E84006AA193 /* Project object */;
 }
