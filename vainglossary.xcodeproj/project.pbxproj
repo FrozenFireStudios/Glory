@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2CAEFE0C1E6FC2F400ED702C /* NSManagedObjectContext+PerformAndReturn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAEFE0B1E6FC2F400ED702C /* NSManagedObjectContext+PerformAndReturn.swift */; };
 		2CF1DADB1E622E84006AA193 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1DADA1E622E84006AA193 /* AppDelegate.swift */; };
-		2CF1DADD1E622E84006AA193 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1DADC1E622E84006AA193 /* ViewController.swift */; };
 		2CF1DAE21E622E84006AA193 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CF1DAE11E622E84006AA193 /* Assets.xcassets */; };
 		2CF1DAE51E622E84006AA193 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CF1DAE31E622E84006AA193 /* LaunchScreen.storyboard */; };
 		2CF1DAF01E622E84006AA193 /* vainglossaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1DAEF1E622E84006AA193 /* vainglossaryTests.swift */; };
@@ -36,6 +35,12 @@
 		2CF1DB531E6FBFD3006AA193 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1DB501E6FBFD3006AA193 /* CoreDataStack.swift */; };
 		2CF1DB541E6FBFD3006AA193 /* InMemoryStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1DB511E6FBFD3006AA193 /* InMemoryStack.swift */; };
 		2CF1DB551E6FBFD3006AA193 /* ResettingStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1DB521E6FBFD3006AA193 /* ResettingStack.swift */; };
+		EFD138D81E70FE7400ECC059 /* HeroesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD138D71E70FE7400ECC059 /* HeroesViewController.swift */; };
+		EFD138DA1E70FE7B00ECC059 /* HeroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD138D91E70FE7B00ECC059 /* HeroViewController.swift */; };
+		EFD138DC1E70FE8400ECC059 /* LiveDraftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD138DB1E70FE8400ECC059 /* LiveDraftViewController.swift */; };
+		EFD138DE1E70FE8D00ECC059 /* DraftStrategyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD138DD1E70FE8D00ECC059 /* DraftStrategyViewController.swift */; };
+		EFD138E01E70FEB600ECC059 /* MatchHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD138DF1E70FEB600ECC059 /* MatchHistoryViewController.swift */; };
+		EFD138E31E7100FB00ECC059 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD138E21E7100FB00ECC059 /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +57,6 @@
 		2CAEFE0B1E6FC2F400ED702C /* NSManagedObjectContext+PerformAndReturn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+PerformAndReturn.swift"; sourceTree = "<group>"; };
 		2CF1DAD71E622E84006AA193 /* vainglossary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vainglossary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CF1DADA1E622E84006AA193 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2CF1DADC1E622E84006AA193 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2CF1DAE11E622E84006AA193 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2CF1DAE41E622E84006AA193 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CF1DAE61E622E84006AA193 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -82,6 +86,12 @@
 		2CF1DB501E6FBFD3006AA193 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		2CF1DB511E6FBFD3006AA193 /* InMemoryStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InMemoryStack.swift; sourceTree = "<group>"; };
 		2CF1DB521E6FBFD3006AA193 /* ResettingStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResettingStack.swift; sourceTree = "<group>"; };
+		EFD138D71E70FE7400ECC059 /* HeroesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroesViewController.swift; sourceTree = "<group>"; };
+		EFD138D91E70FE7B00ECC059 /* HeroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroViewController.swift; sourceTree = "<group>"; };
+		EFD138DB1E70FE8400ECC059 /* LiveDraftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveDraftViewController.swift; sourceTree = "<group>"; };
+		EFD138DD1E70FE8D00ECC059 /* DraftStrategyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraftStrategyViewController.swift; sourceTree = "<group>"; };
+		EFD138DF1E70FEB600ECC059 /* MatchHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchHistoryViewController.swift; sourceTree = "<group>"; };
+		EFD138E21E7100FB00ECC059 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,7 +158,7 @@
 				2CF1DB021E623730006AA193 /* Models */,
 				2CF1DB001E623713006AA193 /* Services */,
 				2CF1DADA1E622E84006AA193 /* AppDelegate.swift */,
-				2CF1DADC1E622E84006AA193 /* ViewController.swift */,
+				EFD138E11E70FEFB00ECC059 /* ViewControllers */,
 				2CF1DAE11E622E84006AA193 /* Assets.xcassets */,
 				2CF1DAE31E622E84006AA193 /* LaunchScreen.storyboard */,
 				2CF1DAE61E622E84006AA193 /* Info.plist */,
@@ -235,6 +245,19 @@
 				2CF1DB521E6FBFD3006AA193 /* ResettingStack.swift */,
 			);
 			name = Stacks;
+			sourceTree = "<group>";
+		};
+		EFD138E11E70FEFB00ECC059 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				EFD138D71E70FE7400ECC059 /* HeroesViewController.swift */,
+				EFD138E21E7100FB00ECC059 /* TableViewController.swift */,
+				EFD138D91E70FE7B00ECC059 /* HeroViewController.swift */,
+				EFD138DB1E70FE8400ECC059 /* LiveDraftViewController.swift */,
+				EFD138DD1E70FE8D00ECC059 /* DraftStrategyViewController.swift */,
+				EFD138DF1E70FEB600ECC059 /* MatchHistoryViewController.swift */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -339,20 +362,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFD138E01E70FEB600ECC059 /* MatchHistoryViewController.swift in Sources */,
 				2CF1DB1B1E62A234006AA193 /* ObjectType.swift in Sources */,
 				2CF1DB531E6FBFD3006AA193 /* CoreDataStack.swift in Sources */,
 				2CF1DB051E62390F006AA193 /* URLPathComponent.swift in Sources */,
 				2CF1DB4B1E6FBA62006AA193 /* Build.swift in Sources */,
 				2CF1DB151E628385006AA193 /* ObjectData.swift in Sources */,
 				2CF1DAFB1E623110006AA193 /* MadGloryService.swift in Sources */,
+				EFD138D81E70FE7400ECC059 /* HeroesViewController.swift in Sources */,
 				2CF1DAFF1E62370A006AA193 /* VainGloryRequest.swift in Sources */,
+				EFD138DA1E70FE7B00ECC059 /* HeroViewController.swift in Sources */,
+				EFD138DE1E70FE8D00ECC059 /* DraftStrategyViewController.swift in Sources */,
 				2CF1DB0A1E6247CB006AA193 /* MatchesRequest.swift in Sources */,
 				2CF1DB421E6FB654006AA193 /* Match.swift in Sources */,
+				EFD138DC1E70FE8400ECC059 /* LiveDraftViewController.swift in Sources */,
 				2CF1DB4D1E6FBA88006AA193 /* Role.swift in Sources */,
+				EFD138E31E7100FB00ECC059 /* TableViewController.swift in Sources */,
 				2CF1DB3E1E6FB654006AA193 /* Item.swift in Sources */,
 				2CF1DB441E6FB654006AA193 /* Character.swift in Sources */,
 				2CF1DB541E6FBFD3006AA193 /* InMemoryStack.swift in Sources */,
-				2CF1DADD1E622E84006AA193 /* ViewController.swift in Sources */,
 				2CF1DB4F1E6FBF8B006AA193 /* Database.swift in Sources */,
 				2CF1DB0C1E6249D4006AA193 /* MatchRequest.swift in Sources */,
 				2CF1DB461E6FB654006AA193 /* Participant.swift in Sources */,
