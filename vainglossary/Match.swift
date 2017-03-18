@@ -14,5 +14,6 @@ class Match: NSManagedObject, Entity {
     
     @NSManaged var id: String
     @NSManaged var duration: Int64
+    @NSManaged var date: NSDate
     @NSManaged var participants: Set<Participant>
 }

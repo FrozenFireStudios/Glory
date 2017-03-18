@@ -14,14 +14,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var database: Database!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
         guard let apiKey = ProcessInfo.processInfo.environment["vgAPIKey"] else {
             fatalError("API Key required")
         }
         
         database = Database(madGloryAPIKey: apiKey)
-        
-        database.update()
+        database.update { result in
+            switch result {
+            case .success:
+                print("Database updated successfully")
+            case .failure(let error):
+                print("Database failed to update with error: \(error)")
+            }
+        }
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = .black

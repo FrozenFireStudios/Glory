@@ -21,6 +21,7 @@
         <relationship name="participants" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Participant" inverseName="items" inverseEntity="Participant" syncable="YES"/>
     </entity>
     <entity name="Match" representedClassName=".Match" syncable="YES">
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="duration" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="id" attributeType="String" syncable="YES"/>
         <relationship name="participants" toMany="YES" deletionRule="Nullify" destinationEntity="Participant" inverseName="match" inverseEntity="Participant" syncable="YES"/>
@@ -45,7 +46,7 @@
     <elements>
         <element name="Character" positionX="-63" positionY="-18" width="128" height="165"/>
         <element name="Item" positionX="-18" positionY="27" width="128" height="165"/>
-        <element name="Match" positionX="-36" positionY="9" width="128" height="90"/>
+        <element name="Match" positionX="-36" positionY="9" width="128" height="105"/>
         <element name="MatchUp" positionX="-54" positionY="-9" width="128" height="105"/>
         <element name="Participant" positionX="0" positionY="45" width="128" height="180"/>
     </elements>

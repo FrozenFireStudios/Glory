@@ -17,6 +17,7 @@ class Database {
     init(madGloryAPIKey: String) {
         madGloryService = MadGloryService(apiKey: madGloryAPIKey, baseURL: URL(string: "https://api.dc01.gamelockerapp.com/")!)
         gloryBackendService = GloryBackendService()
+        stack.setupContextNotifications()
     }
     
     func update(completion: SuccessCompletion? = nil) {
@@ -74,14 +75,14 @@ class Database {
         }
     }
     
-    func characters() throws -> [Character] {
-        return try stack.mainContext.performAndReturn { _ in
-            let request = Character.request()
-            return try request.execute()
-        }
+    func createCharacterResultsController() -> NSFetchedResultsController<Character> {
+        let fr = Character.request()
+        fr.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+        return NSFetchedResultsController(fetchRequest: fr, managedObjectContext: stack.mainContext, sectionNameKeyPath: nil, cacheName: nil)
     }
 }
 
 enum DatabaseUpdateError: Error {
     case missingIDs
+    case invalidItemName
 }
