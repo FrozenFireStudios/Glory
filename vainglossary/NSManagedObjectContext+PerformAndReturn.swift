@@ -29,4 +29,21 @@ extension NSManagedObjectContext {
         
         return returnValue!
     }
+    
+    func performAndThrow(code: @escaping (NSManagedObjectContext) throws -> Void) throws {
+        var errorToThrow: Error?
+        
+        performAndWait {
+            do {
+                try code(self)
+            }
+            catch {
+                errorToThrow = error
+            }
+        }
+        
+        if let error = errorToThrow {
+            throw error
+        }
+    }
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2CAEFE0C1E6FC2F400ED702C /* NSManagedObjectContext+PerformAndReturn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAEFE0B1E6FC2F400ED702C /* NSManagedObjectContext+PerformAndReturn.swift */; };
+		2CAEFE0E1E7CD98700ED702C /* GloryBackendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAEFE0D1E7CD98700ED702C /* GloryBackendService.swift */; };
 		2CF1DADB1E622E84006AA193 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1DADA1E622E84006AA193 /* AppDelegate.swift */; };
 		2CF1DAE21E622E84006AA193 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CF1DAE11E622E84006AA193 /* Assets.xcassets */; };
 		2CF1DAE51E622E84006AA193 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CF1DAE31E622E84006AA193 /* LaunchScreen.storyboard */; };
@@ -55,6 +56,7 @@
 
 /* Begin PBXFileReference section */
 		2CAEFE0B1E6FC2F400ED702C /* NSManagedObjectContext+PerformAndReturn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+PerformAndReturn.swift"; sourceTree = "<group>"; };
+		2CAEFE0D1E7CD98700ED702C /* GloryBackendService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GloryBackendService.swift; sourceTree = "<group>"; };
 		2CF1DAD71E622E84006AA193 /* vainglossary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vainglossary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CF1DADA1E622E84006AA193 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CF1DAE11E622E84006AA193 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 			children = (
 				2CF1DB4E1E6FBF8B006AA193 /* Database.swift */,
 				2CF1DAFA1E623110006AA193 /* MadGloryService.swift */,
+				2CAEFE0D1E7CD98700ED702C /* GloryBackendService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				2CF1DB171E62A0EF006AA193 /* Relationship.swift in Sources */,
 				2CF1DB1F1E6FB158006AA193 /* VainGlory.xcdatamodeld in Sources */,
 				2CF1DB401E6FB654006AA193 /* MatchUp.swift in Sources */,
+				2CAEFE0E1E7CD98700ED702C /* GloryBackendService.swift in Sources */,
 				2CF1DAFD1E623303006AA193 /* Result.swift in Sources */,
 				2CF1DB491E6FB8B7006AA193 /* Entity.swift in Sources */,
 				2CF1DADB1E622E84006AA193 /* AppDelegate.swift in Sources */,

@@ -34,7 +34,7 @@ class MatchUp: NSManagedObject, IntIdentifiableEntity, JSONInstantiableEntity {
         }
         
         let fr = Character.request()
-        fr.predicate = NSPredicate(format: "%K IN %@", "name", [characterName, otherCharacterName])
+        fr.predicate = NSPredicate(format: "%K IN %@", "serverName", [characterName, otherCharacterName])
         let characters = try fr.execute()
         
         guard let character = characters.filter({ $0.name == characterName }).first else {
