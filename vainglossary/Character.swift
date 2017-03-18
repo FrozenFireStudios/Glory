@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class Character: NSManagedObject, Entity {
+class Character: NSManagedObject, IntIdentifiableEntity, JSONInstantiableEntity {
     static var entityName = "Character"
     
     @NSManaged var id: Int64
@@ -35,6 +35,27 @@ class Character: NSManagedObject, Entity {
         set {
             rolesString = newValue.map({ $0.rawValue }).joined(separator: ",")
         }
+    }
+    
+    func update(from json: [String : Any], in context: NSManagedObjectContext) throws {
+        guard
+            let id = json["id"] as? Int64,
+            let name = json["name"] as? String,
+            let serverName = json["serverName"] as? String,
+            let buildsArray = json["builds"] as? [String],
+            let rolesArray = json["roles"] as? [String]
+            else {
+                throw JSONInstantiationError.invalidJSON(json: json)
+        }
+        
+        guard id == self.id else {
+            throw JSONInstantiationError.wrongID(id: id, expected: self.id)
+        }
+        
+        self.name = name
+        self.serverName = serverName
+        self.buildsString = buildsArray.joined(separator: ",")
+        self.rolesString = rolesArray.joined(separator: ",")
     }
     
     @NSManaged var matchUps: Set<MatchUp>?
