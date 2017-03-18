@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2CAEFE0C1E6FC2F400ED702C /* NSManagedObjectContext+PerformAndReturn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAEFE0B1E6FC2F400ED702C /* NSManagedObjectContext+PerformAndReturn.swift */; };
 		2CAEFE0E1E7CD98700ED702C /* GloryBackendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAEFE0D1E7CD98700ED702C /* GloryBackendService.swift */; };
+		2CAEFE101E7CE9EC00ED702C /* Draft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAEFE0F1E7CE9EC00ED702C /* Draft.swift */; };
 		2CF1DADB1E622E84006AA193 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1DADA1E622E84006AA193 /* AppDelegate.swift */; };
 		2CF1DAE21E622E84006AA193 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CF1DAE11E622E84006AA193 /* Assets.xcassets */; };
 		2CF1DAE51E622E84006AA193 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CF1DAE31E622E84006AA193 /* LaunchScreen.storyboard */; };
@@ -57,6 +58,7 @@
 /* Begin PBXFileReference section */
 		2CAEFE0B1E6FC2F400ED702C /* NSManagedObjectContext+PerformAndReturn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+PerformAndReturn.swift"; sourceTree = "<group>"; };
 		2CAEFE0D1E7CD98700ED702C /* GloryBackendService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GloryBackendService.swift; sourceTree = "<group>"; };
+		2CAEFE0F1E7CE9EC00ED702C /* Draft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Draft.swift; sourceTree = "<group>"; };
 		2CF1DAD71E622E84006AA193 /* vainglossary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vainglossary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CF1DADA1E622E84006AA193 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CF1DAE11E622E84006AA193 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				2CF1DB131E626CE0006AA193 /* MadGlory */,
 				2CF1DB031E623736006AA193 /* Requests */,
 				2CF1DB4A1E6FBA62006AA193 /* Build.swift */,
+				2CAEFE0F1E7CE9EC00ED702C /* Draft.swift */,
 				2CF1DB4C1E6FBA88006AA193 /* Role.swift */,
 			);
 			name = Models;
@@ -374,6 +377,7 @@
 				2CF1DAFB1E623110006AA193 /* MadGloryService.swift in Sources */,
 				EFD138D81E70FE7400ECC059 /* HeroesViewController.swift in Sources */,
 				2CF1DAFF1E62370A006AA193 /* VainGloryRequest.swift in Sources */,
+				2CAEFE101E7CE9EC00ED702C /* Draft.swift in Sources */,
 				EFD138DA1E70FE7B00ECC059 /* HeroViewController.swift in Sources */,
 				EFD138DE1E70FE8D00ECC059 /* DraftStrategyViewController.swift in Sources */,
 				2CF1DB0A1E6247CB006AA193 /* MatchesRequest.swift in Sources */,

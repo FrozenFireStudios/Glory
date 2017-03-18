@@ -15,6 +15,7 @@ class Character: NSManagedObject, IntIdentifiableEntity, JSONInstantiableEntity 
     @NSManaged var id: Int64
     @NSManaged var name: String
     @NSManaged var serverName: String
+    @NSManaged var favorite: Bool
     
     @NSManaged private var buildsString: String
     @NSManaged private var rolesString: String
@@ -63,22 +64,41 @@ class Character: NSManagedObject, IntIdentifiableEntity, JSONInstantiableEntity 
     @NSManaged var participants: Set<Participant>?
     
     func bestAgainst(count: Int = 3) throws -> [Character] {
-        let sorted = (matchUps ?? []).sorted(by: { $0.0.againstValue > $0.1.againstValue })
-        return sorted.prefix(count).map { $0.otherCharacter }
+        return Character.randomThree(in: managedObjectContext!) // TODO: Delete
+//        let sorted = (matchUps ?? []).sorted(by: { $0.0.againstValue > $0.1.againstValue })
+//        return sorted.prefix(count).map { $0.otherCharacter }
     }
     
     func bestCounters(count: Int = 3) throws -> [Character] {
-        let sorted = (matchUps ?? []).sorted(by: { $0.0.againstValue < $0.1.againstValue })
-        return sorted.prefix(count).map { $0.otherCharacter }
+        return Character.randomThree(in: managedObjectContext!) // TODO: Delete
+//        let sorted = (matchUps ?? []).sorted(by: { $0.0.againstValue < $0.1.againstValue })
+//        return sorted.prefix(count).map { $0.otherCharacter }
     }
     
     func bestWith(count: Int = 3) throws -> [Character] {
-        let sorted = (matchUps ?? []).sorted(by: { $0.0.withValue > $0.1.withValue })
-        return sorted.prefix(count).map { $0.otherCharacter }
+        return Character.randomThree(in: managedObjectContext!) // TODO: Delete
+//        let sorted = (matchUps ?? []).sorted(by: { $0.0.withValue > $0.1.withValue })
+//        return sorted.prefix(count).map { $0.otherCharacter }
     }
     
     func worstWith(count: Int = 3) throws -> [Character] {
-        let sorted = (matchUps ?? []).sorted(by: { $0.0.withValue < $0.1.withValue })
-        return sorted.prefix(count).map { $0.otherCharacter }
+        return Character.randomThree(in: managedObjectContext!) // TODO: Delete
+//        let sorted = (matchUps ?? []).sorted(by: { $0.0.withValue < $0.1.withValue })
+//        return sorted.prefix(count).map { $0.otherCharacter }
+    }
+    
+    class func randomThree(in context: NSManagedObjectContext) -> [Character] {
+        let characters: [Character] = (try? context.performAndReturn(code: { _ in
+            let fr = Character.request()
+            let chars = try fr.execute()
+            
+            let topIndex = chars.count - 2
+            let startPos = Int(arc4random_uniform(UInt32(topIndex)))
+            let endPos = startPos + 2
+            
+            return Array(chars[startPos...endPos])
+        })) ?? []
+        
+        return characters
     }
 }

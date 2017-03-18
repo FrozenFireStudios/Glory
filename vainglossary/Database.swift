@@ -80,6 +80,10 @@ class Database {
         fr.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         return NSFetchedResultsController(fetchRequest: fr, managedObjectContext: stack.mainContext, sectionNameKeyPath: nil, cacheName: nil)
     }
+    
+    func createNewDraft() -> Draft {
+        return Draft(context: stack.mainContext)
+    }
 }
 
 enum DatabaseUpdateError: Error {
