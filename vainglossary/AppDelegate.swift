@@ -34,16 +34,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let draftStrategyViewController = DraftStrategyViewController()
         let heroesViewController = HeroesViewController()
-        let liveDraftViewController = LiveDraftViewController()
-        let matchHistoryViewController = MatchHistoryViewController()
+        let liveDraftViewController = LiveDraftViewController(draft: database.createNewDraft()) //LiveDraftIntroViewController(database: database)
         
         let tabController = UITabBarController()
         tabController.viewControllers = [
             draftStrategyViewController,
             UINavigationController(rootViewController: heroesViewController),
             liveDraftViewController,
-            UINavigationController(rootViewController: matchHistoryViewController)
         ]
+        
+        tabController.selectedIndex = 2
         
         window?.rootViewController = tabController
         

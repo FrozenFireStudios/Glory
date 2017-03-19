@@ -37,6 +37,10 @@
 		2CF1DB531E6FBFD3006AA193 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1DB501E6FBFD3006AA193 /* CoreDataStack.swift */; };
 		2CF1DB541E6FBFD3006AA193 /* InMemoryStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1DB511E6FBFD3006AA193 /* InMemoryStack.swift */; };
 		2CF1DB551E6FBFD3006AA193 /* ResettingStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1DB521E6FBFD3006AA193 /* ResettingStack.swift */; };
+		EFAAA34A1E7DF44B00C18D48 /* NSLayoutConstraint+FFStandardMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAAA3491E7DF44B00C18D48 /* NSLayoutConstraint+FFStandardMetrics.swift */; };
+		EFAAA34C1E7DFFBD00C18D48 /* LiveDraftIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAAA34B1E7DFFBD00C18D48 /* LiveDraftIntroViewController.swift */; };
+		EFAAA34E1E7E08F500C18D48 /* HeroCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAAA34D1E7E08F500C18D48 /* HeroCollectionViewCell.swift */; };
+		EFAAA3501E7E0C1800C18D48 /* strategy.txt in Resources */ = {isa = PBXBuildFile; fileRef = EFAAA34F1E7E0C1800C18D48 /* strategy.txt */; };
 		EFD138D81E70FE7400ECC059 /* HeroesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD138D71E70FE7400ECC059 /* HeroesViewController.swift */; };
 		EFD138DA1E70FE7B00ECC059 /* HeroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD138D91E70FE7B00ECC059 /* HeroViewController.swift */; };
 		EFD138DC1E70FE8400ECC059 /* LiveDraftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD138DB1E70FE8400ECC059 /* LiveDraftViewController.swift */; };
@@ -90,6 +94,10 @@
 		2CF1DB501E6FBFD3006AA193 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		2CF1DB511E6FBFD3006AA193 /* InMemoryStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InMemoryStack.swift; sourceTree = "<group>"; };
 		2CF1DB521E6FBFD3006AA193 /* ResettingStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResettingStack.swift; sourceTree = "<group>"; };
+		EFAAA3491E7DF44B00C18D48 /* NSLayoutConstraint+FFStandardMetrics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+FFStandardMetrics.swift"; sourceTree = "<group>"; };
+		EFAAA34B1E7DFFBD00C18D48 /* LiveDraftIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveDraftIntroViewController.swift; sourceTree = "<group>"; };
+		EFAAA34D1E7E08F500C18D48 /* HeroCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroCollectionViewCell.swift; sourceTree = "<group>"; };
+		EFAAA34F1E7E0C1800C18D48 /* strategy.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = strategy.txt; sourceTree = "<group>"; };
 		EFD138D71E70FE7400ECC059 /* HeroesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroesViewController.swift; sourceTree = "<group>"; };
 		EFD138D91E70FE7B00ECC059 /* HeroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroViewController.swift; sourceTree = "<group>"; };
 		EFD138DB1E70FE8400ECC059 /* LiveDraftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveDraftViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +174,7 @@
 				2CF1DAE11E622E84006AA193 /* Assets.xcassets */,
 				2CF1DAE31E622E84006AA193 /* LaunchScreen.storyboard */,
 				2CF1DAE61E622E84006AA193 /* Info.plist */,
+				EFAAA34F1E7E0C1800C18D48 /* strategy.txt */,
 			);
 			path = vainglossary;
 			sourceTree = "<group>";
@@ -217,6 +226,7 @@
 			children = (
 				2CF1DAFC1E623303006AA193 /* Result.swift */,
 				2CF1DB041E62390F006AA193 /* URLPathComponent.swift */,
+				EFAAA3491E7DF44B00C18D48 /* NSLayoutConstraint+FFStandardMetrics.swift */,
 			);
 			name = Conveniences;
 			sourceTree = "<group>";
@@ -260,6 +270,8 @@
 				EFD138E21E7100FB00ECC059 /* TableViewController.swift */,
 				EFD138D91E70FE7B00ECC059 /* HeroViewController.swift */,
 				EFD138DB1E70FE8400ECC059 /* LiveDraftViewController.swift */,
+				EFAAA34D1E7E08F500C18D48 /* HeroCollectionViewCell.swift */,
+				EFAAA34B1E7DFFBD00C18D48 /* LiveDraftIntroViewController.swift */,
 				EFD138DD1E70FE8D00ECC059 /* DraftStrategyViewController.swift */,
 				EFD138DF1E70FEB600ECC059 /* MatchHistoryViewController.swift */,
 			);
@@ -350,6 +362,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CF1DAE51E622E84006AA193 /* LaunchScreen.storyboard in Resources */,
+				EFAAA3501E7E0C1800C18D48 /* strategy.txt in Resources */,
 				2CF1DAE21E622E84006AA193 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -372,6 +385,7 @@
 				2CF1DB1B1E62A234006AA193 /* ObjectType.swift in Sources */,
 				2CF1DB531E6FBFD3006AA193 /* CoreDataStack.swift in Sources */,
 				2CF1DB051E62390F006AA193 /* URLPathComponent.swift in Sources */,
+				EFAAA34A1E7DF44B00C18D48 /* NSLayoutConstraint+FFStandardMetrics.swift in Sources */,
 				2CF1DB4B1E6FBA62006AA193 /* Build.swift in Sources */,
 				2CF1DB151E628385006AA193 /* ObjectData.swift in Sources */,
 				2CF1DAFB1E623110006AA193 /* MadGloryService.swift in Sources */,
@@ -395,10 +409,12 @@
 				2CF1DB171E62A0EF006AA193 /* Relationship.swift in Sources */,
 				2CF1DB1F1E6FB158006AA193 /* VainGlory.xcdatamodeld in Sources */,
 				2CF1DB401E6FB654006AA193 /* MatchUp.swift in Sources */,
+				EFAAA34E1E7E08F500C18D48 /* HeroCollectionViewCell.swift in Sources */,
 				2CAEFE0E1E7CD98700ED702C /* GloryBackendService.swift in Sources */,
 				2CF1DAFD1E623303006AA193 /* Result.swift in Sources */,
 				2CF1DB491E6FB8B7006AA193 /* Entity.swift in Sources */,
 				2CF1DADB1E622E84006AA193 /* AppDelegate.swift in Sources */,
+				EFAAA34C1E7DFFBD00C18D48 /* LiveDraftIntroViewController.swift in Sources */,
 				2CF1DB191E62A105006AA193 /* Object.swift in Sources */,
 				2CAEFE0C1E6FC2F400ED702C /* NSManagedObjectContext+PerformAndReturn.swift in Sources */,
 			);

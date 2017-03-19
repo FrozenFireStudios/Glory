@@ -1,0 +1,49 @@
+Update 1.14 brings Draft Mode to Ranked play! Draft empowers players to use their game knowledge more effectively and adds an element of strategy that heightens the game experience for everyone. Read below to find out how Draft Mode changes the game for you!
+
+UNIQUE FEEL TO EVERY GAME
+
+Draft starts by letting the players make the big decisions. Each draft phase will be different and fresh, resulting in countless combinations!
+
+The first stage of Draft Mode will assign each player on a team either first, second or third pick. First pick is the team captain who will decide the ban for their team. Captains tap on a hero to select them. A second tap will lock-in that ban choice. A banned hero cannot be played by either team.
+
+Draft Mode continues with the pick stage. Hero selections are exclusive in this phase. Once a hero is chosen, it is not available to any other player (on either team).
+
+NO NEED TO INSTALOCK
+
+Though you are part of a team, you are the only one picking when it’s your turn to draft. Hero selection is your choice. Use your time wisely.
+
+Though the draft follows a 1:2:2:1 picking format, each player has their own turn to select the hero of their choice. This ensures two players are never competing to see who can pick and lock a hero first. Players are given 25 seconds to ban or pick a hero.
+
+This phase starts with blue side’s captain selecting the first pick for their team. Once a hero has been selected, priority moves to the red side. The overall draft order looks like this:
+
+ 
+
+DraftOrder-600px
+
+COMMUNICATE YOUR INTENTIONS
+
+Draft Mode empowers players to be more expressive during hero select.
+
+Throughout the Hero Select Phase, players are able to tap on a hero to give a thumbs up or thumbs down. Allies can see these indicators, immediately delivering feedback throughout the draft process. This will help you suggest a ban or a pick to allies and formulate a thoughtful hero comp, as well as dissuade allies from selecting a hero that won’t fit in well.
+
+At any time during hero selection, a player can indicate to his team which position he intends to play via the familiar role selections of LANE, JUNGLE or ROAM. Additionally, players will also be able to show whether they intend to build crystal, weapon or utility items on that hero. Let your allies know how you plan to build, and avoid those double-weapon or double-crystal comps that are easy to counter.
+
+DraftRole-600px
+
+ OPENING EVERY DOOR 
+
+Draft Mode is changing so much about Ranked play, but we couldn’t let pick order hurt the plans of the brilliant schemers out there.
+
+After each player has picked a hero, the Swap Phase begins. You can suggest a swap with an ally, and if they consent, you’ll switch heroes. Swapping is crucial for prioritizing hero picks early in the draft — even if the player making the pick isn’t the player who intends to use that hero. These trades are even allowed if one of the trading players hasn’t unlocked one of the heroes being swapped!
+
+DRAFT MODE INCLUDED IN PRIVATE MATCHES
+
+Draft Mode will not be exclusive to Ranked queue. Allowing draft as a Private game mode will better support the thriving tournament scene and make this level of strategic preparation easier to practice and utilize by everyone. You’ll find the draft option listed as “PRIVATE – DRAFT” in your Private game drop-down menu.
+
+SOLO QUEUE IMPROVEMENTS
+
+Because captains are chosen randomly, each player will have the opportunity to experience each stage of Draft Mode. You will be assigned either first, second or third pick for your team. This predetermined pick order provides structure to change three players into a team. Respect and follow the pick order, allowing players above you to pick their roles first.
+
+The number of unlocked heroes required for ranked is also increasing. Because there are 2 bans and 6 unique picks, players must have unlocked at least 8 heroes to queue for Ranked play. It’s best to feel comfortable playing as any role before diving into Ranked queue!
+
+Draft Mode is coming in Update 1.14 but planning and theorycrafting starts today! Start deciding how Draft Mode will work in your favor now!

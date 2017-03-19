@@ -23,12 +23,24 @@ class DraftStrategyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let path = Bundle.main.path(forResource: "strategy", ofType: "txt") {
+            let strategyText = try? String(contentsOfFile: path)
+            textView.text = strategyText ?? "Failed to load strategy"
+        }
+        
         view.addSubview(backgroundImageView)
+        view.addSubview(textView)
         
-        let views = ["background": backgroundImageView]
+        let views: [String:UIView] = [
+            "background": backgroundImageView,
+            "text": textView
+        ]
         
-        NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "H:|[background]|", options: [], metrics: nil, views: views))
-        NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "V:|[background]|", options: [], metrics: nil, views: views))
+        NSLayoutConstraint.activeConstraintsWithFormat("H:|[background]|", views: views)
+        NSLayoutConstraint.activeConstraintsWithFormat("V:|[background]|", views: views)
+        
+        NSLayoutConstraint.activeConstraintsWithFormat("H:|[text]|", views: views)
+        NSLayoutConstraint.activeConstraintsWithFormat("V:|[text]|", views: views)
     }
     
     //==========================================================================
@@ -40,5 +52,11 @@ class DraftStrategyViewController: UIViewController {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.backgroundColor = UIColor.lightGray
         return imageView
+    }()
+    
+    lazy var textView: UITextView = {
+        let textView = UITextView()
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        return textView
     }()
 }

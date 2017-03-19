@@ -20,6 +20,18 @@ class Draft {
     var teamAPick3: Character?
     var teamBPick3: Character?
     
+    var bans: [Character] {
+        return [teamABan, teamBBan].flatMap {$0}
+    }
+    
+    var teamAPicks: [Character] {
+        return [teamAPick1, teamAPick2, teamAPick3].flatMap {$0}
+    }
+    
+    var teamBPicks: [Character] {
+        return [teamBPick1, teamBPick2, teamBPick3].flatMap {$0}
+    }
+    
     init(context: NSManagedObjectContext) {
         self.context = context
     }
@@ -54,5 +66,14 @@ class Draft {
     func recommendationsForNextPick() -> [Character] {
         // TODO: Actually do this part
         return Character.randomThree(in: context)
+    }
+    
+    /// All Heroes not already picked, banned, or recommended
+    func remainingCharacters() -> [Character] {
+        let allCharacters = Character.randomThree(in: context)
+        // TODO: Remove banned characters
+        // TODO: Remove picked characters
+        // TODO: Remove recommended characters
+        return allCharacters ?? []
     }
 }
