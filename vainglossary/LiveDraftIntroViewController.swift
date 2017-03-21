@@ -25,14 +25,29 @@ class LiveDraftIntroViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        view.addSubview(startButton)
+        
+        startButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        startButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
     
     func startDraft() {
         let draft = database.createNewDraft()
         
-        // TODO: Present LiveDraftViewController(draft: draft)
+        let draftViewController = LiveDraftViewController(draft: draft)
+        present(draftViewController, animated: true, completion: nil)
     }
-
+    
+    //==========================================================================
+    // MARK: - Views
+    //==========================================================================
+    
+    lazy var startButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Start Draft", for: .normal)
+        button.addTarget(self, action: #selector(LiveDraftIntroViewController.startDraft), for: .primaryActionTriggered)
+        return button
+    }()
 }

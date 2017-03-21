@@ -50,6 +50,7 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
         
         
         view.addSubview(backgroundImageView)
+        view.addSubview(cancelButton)
         view.addSubview(titleLabel)
         view.addSubview(picksView)
         picksView.addSubview(teamAPicksStack)
@@ -58,6 +59,7 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
         
         let views: [String:UIView] = [
             "background": backgroundImageView,
+            "cancel": cancelButton,
             "title": titleLabel,
             "picks": picksView,
             "heroes": heroesCollection,
@@ -73,13 +75,22 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
         NSLayoutConstraint.activeConstraintsWithFormat("V:|-(Padding)-[teamB]-(Padding)-|", views: views)
         teamAPicksStack.heightAnchor.constraint(equalToConstant: 36.0).isActive = true
         
-        NSLayoutConstraint.activeConstraintsWithFormat("H:|-(Margin)-[title]-(Margin)-|", views: views)
+        NSLayoutConstraint.activeConstraintsWithFormat("H:|-(Margin)-[cancel]-(Margin)-[title]-(Margin)-|", views: views)
         NSLayoutConstraint.activeConstraintsWithFormat("H:|-(Margin)-[picks]-(Margin)-|", views: views)
         NSLayoutConstraint.activeConstraintsWithFormat("H:|[heroes]|", views: views)
         
+        cancelButton.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor, constant: CGFloat(FFPadding)).isActive = true
         titleLabel.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor, constant: CGFloat(FFPadding)).isActive = true
         NSLayoutConstraint.activeConstraintsWithFormat("V:[title]-(Margin)-[picks]-(Margin)-[heroes]", views: views)
         heroesCollection.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor).isActive = true
+    }
+    
+    //==========================================================================
+    // MARK: - Actions
+    //==========================================================================
+    
+    func cancel() {
+        dismiss(animated: true, completion: nil)
     }
     
     //==========================================================================
@@ -225,6 +236,15 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
     //==========================================================================
     // MARK: - Views
     //==========================================================================
+    
+    lazy var cancelButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setContentHuggingPriority(UILayoutPriorityRequired, for: .horizontal)
+        button.setTitle("Cancel", for: .normal)
+        button.addTarget(self, action: #selector(LiveDraftViewController.cancel), for: .primaryActionTriggered)
+        return button
+    }()
     
     lazy var backgroundImageView: UIImageView = {
         let imageView = UIImageView()
