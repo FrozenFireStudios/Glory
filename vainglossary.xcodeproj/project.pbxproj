@@ -38,6 +38,8 @@
 		2CF1DB541E6FBFD3006AA193 /* InMemoryStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1DB511E6FBFD3006AA193 /* InMemoryStack.swift */; };
 		2CF1DB551E6FBFD3006AA193 /* ResettingStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1DB521E6FBFD3006AA193 /* ResettingStack.swift */; };
 		EF250FF01E80C5B3009BC013 /* Character+Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF250FEF1E80C5B3009BC013 /* Character+Images.swift */; };
+		EF4745841E81D9DD0009FAF8 /* HeroTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4745831E81D9DD0009FAF8 /* HeroTableViewCell.swift */; };
+		EF4745861E81DB2C0009FAF8 /* UIColor+Glory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4745851E81DB2C0009FAF8 /* UIColor+Glory.swift */; };
 		EFAAA34A1E7DF44B00C18D48 /* NSLayoutConstraint+FFStandardMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAAA3491E7DF44B00C18D48 /* NSLayoutConstraint+FFStandardMetrics.swift */; };
 		EFAAA34C1E7DFFBD00C18D48 /* LiveDraftIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAAA34B1E7DFFBD00C18D48 /* LiveDraftIntroViewController.swift */; };
 		EFAAA34E1E7E08F500C18D48 /* HeroCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAAA34D1E7E08F500C18D48 /* HeroCollectionViewCell.swift */; };
@@ -47,7 +49,6 @@
 		EFD138DC1E70FE8400ECC059 /* LiveDraftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD138DB1E70FE8400ECC059 /* LiveDraftViewController.swift */; };
 		EFD138DE1E70FE8D00ECC059 /* DraftStrategyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD138DD1E70FE8D00ECC059 /* DraftStrategyViewController.swift */; };
 		EFD138E01E70FEB600ECC059 /* MatchHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD138DF1E70FEB600ECC059 /* MatchHistoryViewController.swift */; };
-		EFD138E31E7100FB00ECC059 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD138E21E7100FB00ECC059 /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,8 @@
 		2CF1DB511E6FBFD3006AA193 /* InMemoryStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InMemoryStack.swift; sourceTree = "<group>"; };
 		2CF1DB521E6FBFD3006AA193 /* ResettingStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResettingStack.swift; sourceTree = "<group>"; };
 		EF250FEF1E80C5B3009BC013 /* Character+Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Character+Images.swift"; sourceTree = "<group>"; };
+		EF4745831E81D9DD0009FAF8 /* HeroTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroTableViewCell.swift; sourceTree = "<group>"; };
+		EF4745851E81DB2C0009FAF8 /* UIColor+Glory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Glory.swift"; sourceTree = "<group>"; };
 		EFAAA3491E7DF44B00C18D48 /* NSLayoutConstraint+FFStandardMetrics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+FFStandardMetrics.swift"; sourceTree = "<group>"; };
 		EFAAA34B1E7DFFBD00C18D48 /* LiveDraftIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveDraftIntroViewController.swift; sourceTree = "<group>"; };
 		EFAAA34D1E7E08F500C18D48 /* HeroCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -105,7 +108,6 @@
 		EFD138DB1E70FE8400ECC059 /* LiveDraftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveDraftViewController.swift; sourceTree = "<group>"; };
 		EFD138DD1E70FE8D00ECC059 /* DraftStrategyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraftStrategyViewController.swift; sourceTree = "<group>"; };
 		EFD138DF1E70FEB600ECC059 /* MatchHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchHistoryViewController.swift; sourceTree = "<group>"; };
-		EFD138E21E7100FB00ECC059 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +232,7 @@
 				2CF1DB041E62390F006AA193 /* URLPathComponent.swift */,
 				EFAAA3491E7DF44B00C18D48 /* NSLayoutConstraint+FFStandardMetrics.swift */,
 				EF250FEF1E80C5B3009BC013 /* Character+Images.swift */,
+				EF4745851E81DB2C0009FAF8 /* UIColor+Glory.swift */,
 			);
 			name = Conveniences;
 			sourceTree = "<group>";
@@ -266,16 +269,32 @@
 			name = Stacks;
 			sourceTree = "<group>";
 		};
-		EFD138E11E70FEFB00ECC059 /* ViewControllers */ = {
+		EF4745821E81D9CB0009FAF8 /* Heroes */ = {
 			isa = PBXGroup;
 			children = (
 				EFD138D71E70FE7400ECC059 /* HeroesViewController.swift */,
-				EFD138E21E7100FB00ECC059 /* TableViewController.swift */,
 				EFD138D91E70FE7B00ECC059 /* HeroViewController.swift */,
+				EF4745831E81D9DD0009FAF8 /* HeroTableViewCell.swift */,
+			);
+			name = Heroes;
+			sourceTree = "<group>";
+		};
+		EF4745871E81DFCB0009FAF8 /* Live Draft */ = {
+			isa = PBXGroup;
+			children = (
 				EFD138DB1E70FE8400ECC059 /* LiveDraftViewController.swift */,
-				EFAAA34D1E7E08F500C18D48 /* HeroCollectionViewCell.swift */,
 				EFAAA34B1E7DFFBD00C18D48 /* LiveDraftIntroViewController.swift */,
+				EFAAA34D1E7E08F500C18D48 /* HeroCollectionViewCell.swift */,
+			);
+			name = "Live Draft";
+			sourceTree = "<group>";
+		};
+		EFD138E11E70FEFB00ECC059 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
 				EFD138DD1E70FE8D00ECC059 /* DraftStrategyViewController.swift */,
+				EF4745821E81D9CB0009FAF8 /* Heroes */,
+				EF4745871E81DFCB0009FAF8 /* Live Draft */,
 				EFD138DF1E70FEB600ECC059 /* MatchHistoryViewController.swift */,
 			);
 			name = ViewControllers;
@@ -393,6 +412,7 @@
 				2CF1DB151E628385006AA193 /* ObjectData.swift in Sources */,
 				2CF1DAFB1E623110006AA193 /* MadGloryService.swift in Sources */,
 				EFD138D81E70FE7400ECC059 /* HeroesViewController.swift in Sources */,
+				EF4745861E81DB2C0009FAF8 /* UIColor+Glory.swift in Sources */,
 				2CF1DAFF1E62370A006AA193 /* VainGloryRequest.swift in Sources */,
 				2CAEFE101E7CE9EC00ED702C /* Draft.swift in Sources */,
 				EFD138DA1E70FE7B00ECC059 /* HeroViewController.swift in Sources */,
@@ -401,7 +421,6 @@
 				2CF1DB421E6FB654006AA193 /* Match.swift in Sources */,
 				EFD138DC1E70FE8400ECC059 /* LiveDraftViewController.swift in Sources */,
 				2CF1DB4D1E6FBA88006AA193 /* Role.swift in Sources */,
-				EFD138E31E7100FB00ECC059 /* TableViewController.swift in Sources */,
 				2CF1DB3E1E6FB654006AA193 /* Item.swift in Sources */,
 				2CF1DB441E6FB654006AA193 /* Character.swift in Sources */,
 				2CF1DB541E6FBFD3006AA193 /* InMemoryStack.swift in Sources */,
@@ -413,6 +432,7 @@
 				2CF1DB171E62A0EF006AA193 /* Relationship.swift in Sources */,
 				2CF1DB1F1E6FB158006AA193 /* VainGlory.xcdatamodeld in Sources */,
 				2CF1DB401E6FB654006AA193 /* MatchUp.swift in Sources */,
+				EF4745841E81D9DD0009FAF8 /* HeroTableViewCell.swift in Sources */,
 				EFAAA34E1E7E08F500C18D48 /* HeroCollectionViewCell.swift in Sources */,
 				2CAEFE0E1E7CD98700ED702C /* GloryBackendService.swift in Sources */,
 				2CF1DAFD1E623303006AA193 /* Result.swift in Sources */,

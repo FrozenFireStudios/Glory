@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             liveDraftViewController,
         ]
         
-        tabController.selectedIndex = 2
+        tabController.selectedIndex = 1
         
         window?.rootViewController = tabController
         

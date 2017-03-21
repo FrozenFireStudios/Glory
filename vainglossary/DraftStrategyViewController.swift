@@ -23,6 +23,8 @@ class DraftStrategyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = .background
+        
         if let path = Bundle.main.path(forResource: "strategy", ofType: "txt") {
             let strategyText = try? String(contentsOfFile: path)
             textView.text = strategyText ?? "Failed to load strategy"
@@ -40,7 +42,14 @@ class DraftStrategyViewController: UIViewController {
         NSLayoutConstraint.activeConstraintsWithFormat("V:|[background]|", views: views)
         
         NSLayoutConstraint.activeConstraintsWithFormat("H:|[text]|", views: views)
-        NSLayoutConstraint.activeConstraintsWithFormat("V:|[text]|", views: views)
+        textView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor).isActive = true
+        NSLayoutConstraint.activeConstraintsWithFormat("V:[text]|", views: views)
+        
+        textView.contentInset = UIEdgeInsetsMake(CGFloat(FFPadding), 0, 0, 0)
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
     //==========================================================================
@@ -50,13 +59,14 @@ class DraftStrategyViewController: UIViewController {
     lazy var backgroundImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = UIColor.lightGray
         return imageView
     }()
     
     lazy var textView: UITextView = {
         let textView = UITextView()
         textView.translatesAutoresizingMaskIntoConstraints = false
+        textView.backgroundColor = .clear
+        textView.textColor = .lightText
         return textView
     }()
 }

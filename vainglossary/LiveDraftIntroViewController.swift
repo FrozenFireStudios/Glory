@@ -26,11 +26,26 @@ class LiveDraftIntroViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.addSubview(startButton)
+        view.backgroundColor = .background
         
-        startButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        startButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        let stackView = UIStackView(arrangedSubviews: [titleLabel, descriptionLabel, startButton])
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.spacing = CGFloat(FFMargin)
+        
+        view.addSubview(stackView)
+        
+        NSLayoutConstraint.activeConstraintsWithFormat("H:|-(Margin)-[stack]-(Margin)-|", views: ["stack": stackView])
+        stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    //==========================================================================
+    // MARK: - Draft
+    //==========================================================================
     
     func startDraft() {
         let draft = database.createNewDraft()
@@ -42,6 +57,33 @@ class LiveDraftIntroViewController: UIViewController {
     //==========================================================================
     // MARK: - Views
     //==========================================================================
+    
+    lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        label.font = UIFont.preferredFont(forTextStyle: .headline)
+        label.textAlignment = .center
+        label.textColor = .lightText
+        
+        label.text = "Live Draft"
+        
+        return label
+    }()
+    
+    lazy var descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        label.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        label.textAlignment = .center
+        label.textColor = .white
+        label.numberOfLines = 0
+        
+        label.text = "We will give you recommendations for draft picks during the draft."
+        
+        return label
+    }()
     
     lazy var startButton: UIButton = {
         let button = UIButton(type: .system)

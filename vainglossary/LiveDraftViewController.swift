@@ -45,9 +45,9 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = .background
+        
         titleLabel.text = "Ban a Hero"
-        
-        
         
         view.addSubview(backgroundImageView)
         view.addSubview(cancelButton)
@@ -83,6 +83,10 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
         titleLabel.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor, constant: CGFloat(FFPadding)).isActive = true
         NSLayoutConstraint.activeConstraintsWithFormat("V:[title]-(Margin)-[picks]-(Margin)-[heroes]", views: views)
         heroesCollection.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor).isActive = true
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
     //==========================================================================
@@ -249,7 +253,6 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
     lazy var backgroundImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = UIColor.lightGray
         return imageView
     }()
     
@@ -257,9 +260,9 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         
+        label.font = UIFont.preferredFont(forTextStyle: .title1)
         label.textAlignment = .center
-        
-        label.font = UIFont.boldSystemFont(ofSize: 24.0)
+        label.textColor = .lightText
         
         return label
     }()
@@ -296,7 +299,7 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
         
         layout.itemSize = CGSize(width: 100, height: 100)
         
-        layout.sectionInset = UIEdgeInsets(top: CGFloat(FFMargin), left: 0, bottom: 0, right: 0)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: CGFloat(FFDoubleMargin), right: 0)
         
         return layout
     }()

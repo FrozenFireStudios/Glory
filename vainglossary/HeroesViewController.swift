@@ -31,7 +31,12 @@ class HeroesViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+        tableView.backgroundView = nil
+        tableView.backgroundColor = .darkBackground
+        
+        tableView.rowHeight = 64.0
+        
+        tableView.register(HeroTableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         
         try? heroResultsController.performFetch()
     }
@@ -40,14 +45,14 @@ class HeroesViewController: UITableViewController {
     // MARK: - UITableViewDataSource
     //==========================================================================
     
-    let cellIdentifier = "cell"
+    let cellIdentifier = "HeroCell"
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return heroResultsController.sections?[section].numberOfObjects ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! HeroTableViewCell
         
         let character = heroResultsController.object(at: indexPath)
         
