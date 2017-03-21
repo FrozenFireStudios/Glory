@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         let draftStrategyViewController = DraftStrategyViewController()
-        let heroesViewController = HeroesViewController()
+        let heroesViewController = HeroesViewController(database: database)
         let liveDraftViewController = LiveDraftViewController(draft: database.createNewDraft()) //LiveDraftIntroViewController(database: database)
         
         let tabController = UITabBarController()

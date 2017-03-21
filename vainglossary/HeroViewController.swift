@@ -10,8 +10,13 @@ import UIKit
 
 class HeroViewController: UIViewController {
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    let hero: Character
+    init(hero: Character) {
+        self.hero = hero
+        
+        super.init(nibName: nil, bundle: nil)
+        
+        self.title = hero.name
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -21,6 +26,6 @@ class HeroViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        view.backgroundColor = UIColor.white
     }
 }

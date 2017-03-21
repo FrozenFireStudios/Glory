@@ -15,6 +15,13 @@ class HeroCollectionViewCell: UICollectionViewCell {
         
         self.contentView.backgroundColor = UIColor.lightGray
         
+        self.contentView.layer.cornerRadius = 2.0
+        
+        self.contentView.layer.shadowColor = UIColor.black.cgColor
+        self.contentView.layer.shadowRadius = 1.0
+        self.contentView.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
+        self.contentView.layer.shadowOpacity = 0.5
+        
         self.contentView.addSubview(imageView)
         self.contentView.addSubview(titleLabel)
         
@@ -37,7 +44,14 @@ class HeroCollectionViewCell: UICollectionViewCell {
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        
         imageView.backgroundColor = UIColor.lightGray
+        
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        
+        imageView.layer.cornerRadius = self.contentView.layer.cornerRadius
+        
         return imageView
     }()
     

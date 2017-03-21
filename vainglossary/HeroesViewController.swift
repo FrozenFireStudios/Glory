@@ -7,10 +7,18 @@
 //
 
 import UIKit
+import CoreData
 
 class HeroesViewController: UITableViewController {
     
-    init() {
+    lazy var heroResultsController: NSFetchedResultsController<Character> = {
+        return self.database.createCharacterResultsController()
+    }()
+    
+    let database: Database
+    init(database: Database) {
+        self.database = database
+        
         super.init(style: .plain)
         
         title = "Heroes"
@@ -33,12 +41,17 @@ class HeroesViewController: UITableViewController {
     let cellIdentifier = "cell"
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return heroResultsController.sections?[section].numberOfObjects ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-        cell.textLabel?.text = "Row \(indexPath.row)"
+        
+        let character = heroResultsController.object(at: indexPath)
+        
+        cell.textLabel?.text = character.name
+        cell.imageView?.image = UIImage(named: character.name + "-icon")
+        
         return cell
     }
     
@@ -47,7 +60,9 @@ class HeroesViewController: UITableViewController {
     //==========================================================================
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let heroViewController = HeroViewController()
+        let hero = heroResultsController.object(at: indexPath)
+        
+        let heroViewController = HeroViewController(hero: hero)
         navigationController?.pushViewController(heroViewController, animated: true)
     }
 }

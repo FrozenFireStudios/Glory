@@ -69,15 +69,16 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
         NSLayoutConstraint.activeConstraintsWithFormat("V:|[background]|", views: views)
         
         NSLayoutConstraint.activeConstraintsWithFormat("H:|[teamA]-(>=Padding)-[teamB]|", views: views)
-        NSLayoutConstraint.activeConstraintsWithFormat("V:|[teamA]|", views: views)
-        NSLayoutConstraint.activeConstraintsWithFormat("V:|[teamB]|", views: views)
+        NSLayoutConstraint.activeConstraintsWithFormat("V:|-(Padding)-[teamA]-(Padding)-|", views: views)
+        NSLayoutConstraint.activeConstraintsWithFormat("V:|-(Padding)-[teamB]-(Padding)-|", views: views)
+        teamAPicksStack.heightAnchor.constraint(equalToConstant: 36.0).isActive = true
         
         NSLayoutConstraint.activeConstraintsWithFormat("H:|-(Margin)-[title]-(Margin)-|", views: views)
         NSLayoutConstraint.activeConstraintsWithFormat("H:|-(Margin)-[picks]-(Margin)-|", views: views)
         NSLayoutConstraint.activeConstraintsWithFormat("H:|[heroes]|", views: views)
         
         titleLabel.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor, constant: CGFloat(FFPadding)).isActive = true
-        NSLayoutConstraint.activeConstraintsWithFormat("V:[title]-(Margin)-[picks(48.0)]-(Margin)-[heroes]", views: views)
+        NSLayoutConstraint.activeConstraintsWithFormat("V:[title]-(Margin)-[picks]-(Margin)-[heroes]", views: views)
         heroesCollection.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor).isActive = true
     }
     
@@ -131,34 +132,58 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
         teamAPicksStack.arrangedSubviews.forEach {$0.removeFromSuperview()}
         teamBPicksStack.arrangedSubviews.forEach {$0.removeFromSuperview()}
         
-        print("Bans: \(draft.bans.map {$0.name})")
-        print("Team A: \(draft.teamAPicks.map {$0.name})")
-        print("Team B: \(draft.teamBPicks.map {$0.name})")
-        
         if let teamABan = draft.teamABan {
-            addCharacterToTeamStack(stackView: teamAPicksStack)(teamABan)
+            addCharacterToTeamStack(stackView: teamAPicksStack, banned: true)(teamABan)
         }
         
         if let teamBBan = draft.teamBBan {
-            addCharacterToTeamStack(stackView: teamBPicksStack)(teamBBan)
+            addCharacterToTeamStack(stackView: teamBPicksStack, banned: true)(teamBBan)
         }
         
         draft.teamAPicks.forEach(addCharacterToTeamStack(stackView: teamAPicksStack))
         draft.teamBPicks.forEach(addCharacterToTeamStack(stackView: teamBPicksStack))
     }
     
-    func addCharacterToTeamStack(stackView: UIStackView) -> ((Character) -> Void) {
+    func addCharacterToTeamStack(stackView: UIStackView, banned: Bool = false) -> ((Character) -> Void) {
         let function: (Character) -> Void = { character in
-            // TODO: Show picture of character
             // TODO: Overlay ban (/) symbol
-//            let imageView = UIImageView(image: UIImage(named: character.name))
-//            imageView.backgroundColor = .white
-            let label = UILabel()
-            label.text = character.name
-            label.font = UIFont.systemFont(ofSize: 8)
-            stackView.addArrangedSubview(label)
+            let imageView = UIImageView(image: UIImage(named: character.name.lowercased() + "-icon"))
+            imageView.contentMode = .scaleAspectFill
+            imageView.clipsToBounds = true
+            
+            imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor).isActive = true
+            
+            imageView.layer.cornerRadius = self.teamAPicksStack.frame.height / 2.0
+            
+            if banned {
+                imageView.layer.borderColor = UIColor.red.cgColor
+                imageView.layer.borderWidth = 2.0
+            }
+            
+            stackView.addArrangedSubview(imageView)
         }
         return function
+    }
+    
+    private func downloadHeroIcons() {
+        
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        
+        let contents = try! FileManager.default.contentsOfDirectory(atPath: documentsPath)
+        
+        while contents.count <= 34 {
+            let character = draft.remainingCharacters().first!
+            
+            print(documentsPath)
+            
+            var vaingloryFire = URL(fileURLWithPath: "http://www.vaingloryfire.com/images/wikibase/icon/heroes/")
+            vaingloryFire.appendPathComponent(character.name.lowercased() + ".png")
+            
+            let data = try! Data(contentsOf: vaingloryFire)
+            
+            try! data.write(to: URL(fileURLWithPath: documentsPath + "/" + character.name.lowercased() + ".png"))
+        }
+        
     }
     
     //==========================================================================
@@ -181,8 +206,7 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
         
         let character = characters(section: indexPath.section)[indexPath.row]
         
-        cell.titleLabel.text = character.name
-        cell.imageView.image = UIImage(named: character.name)
+        cell.imageView.image = UIImage(named: character.name.lowercased())
         
         return cell
     }
@@ -223,7 +247,7 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
     lazy var picksView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor.darkGray
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.25)
         return view
     }()
     
@@ -232,7 +256,7 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.setContentHuggingPriority(UILayoutPriorityRequired, for: .horizontal)
         stackView.axis = .horizontal
-        stackView.spacing = CGFloat(FFPadding)
+        stackView.spacing = CGFloat(FFHalfPadding)
         stackView.semanticContentAttribute = .forceLeftToRight
         return stackView
     }()
@@ -242,7 +266,7 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.setContentHuggingPriority(UILayoutPriorityRequired, for: .horizontal)
         stackView.axis = .horizontal
-        stackView.spacing = CGFloat(FFPadding)
+        stackView.spacing = CGFloat(FFHalfPadding)
         stackView.semanticContentAttribute = .forceRightToLeft
         return stackView
     }()
