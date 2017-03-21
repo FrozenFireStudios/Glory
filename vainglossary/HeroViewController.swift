@@ -25,7 +25,29 @@ class HeroViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = UIColor.white
+        
+        backgroundImageView.image = UIImage(named: hero.largeIconName)
+        
+        view.addSubview(backgroundImageView)
+        
+        let views: [String:UIView] = [
+            "background": backgroundImageView
+        ]
+        
+        NSLayoutConstraint.activeConstraintsWithFormat("H:|[background]|", views: views)
+        NSLayoutConstraint.activeConstraintsWithFormat("V:|[background]|", views: views)
     }
+    
+    //==========================================================================
+    // MARK: - Views
+    //==========================================================================
+    
+    lazy var backgroundImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+    }()
+    
 }

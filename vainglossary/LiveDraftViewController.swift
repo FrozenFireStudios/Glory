@@ -146,8 +146,7 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
     
     func addCharacterToTeamStack(stackView: UIStackView, banned: Bool = false) -> ((Character) -> Void) {
         let function: (Character) -> Void = { character in
-            // TODO: Overlay ban (/) symbol
-            let imageView = UIImageView(image: UIImage(named: character.name.lowercased() + "-icon"))
+            let imageView = UIImageView(image: UIImage(named: character.smallIconName))
             imageView.contentMode = .scaleAspectFill
             imageView.clipsToBounds = true
             
@@ -155,6 +154,7 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
             
             imageView.layer.cornerRadius = self.teamAPicksStack.frame.height / 2.0
             
+            // TODO: Overlay ban (/) symbol
             if banned {
                 imageView.layer.borderColor = UIColor.red.cgColor
                 imageView.layer.borderWidth = 2.0
@@ -206,7 +206,7 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
         
         let character = characters(section: indexPath.section)[indexPath.row]
         
-        cell.imageView.image = UIImage(named: character.name.lowercased())
+        cell.imageView.image = UIImage(named: character.largeIconName)
         
         return cell
     }

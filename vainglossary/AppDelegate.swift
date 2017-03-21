@@ -36,10 +36,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let heroesViewController = HeroesViewController(database: database)
         let liveDraftViewController = LiveDraftViewController(draft: database.createNewDraft()) //LiveDraftIntroViewController(database: database)
         
+        let heroesNavController = UINavigationController(rootViewController: heroesViewController)
+        heroesNavController.navigationBar.barStyle = .black
+        
         let tabController = UITabBarController()
+        tabController.tabBar.barStyle = .black
         tabController.viewControllers = [
             draftStrategyViewController,
-            UINavigationController(rootViewController: heroesViewController),
+            heroesNavController,
             liveDraftViewController,
         ]
         

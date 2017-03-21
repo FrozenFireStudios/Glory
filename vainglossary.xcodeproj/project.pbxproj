@@ -37,6 +37,7 @@
 		2CF1DB531E6FBFD3006AA193 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1DB501E6FBFD3006AA193 /* CoreDataStack.swift */; };
 		2CF1DB541E6FBFD3006AA193 /* InMemoryStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1DB511E6FBFD3006AA193 /* InMemoryStack.swift */; };
 		2CF1DB551E6FBFD3006AA193 /* ResettingStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1DB521E6FBFD3006AA193 /* ResettingStack.swift */; };
+		EF250FF01E80C5B3009BC013 /* Character+Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF250FEF1E80C5B3009BC013 /* Character+Images.swift */; };
 		EFAAA34A1E7DF44B00C18D48 /* NSLayoutConstraint+FFStandardMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAAA3491E7DF44B00C18D48 /* NSLayoutConstraint+FFStandardMetrics.swift */; };
 		EFAAA34C1E7DFFBD00C18D48 /* LiveDraftIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAAA34B1E7DFFBD00C18D48 /* LiveDraftIntroViewController.swift */; };
 		EFAAA34E1E7E08F500C18D48 /* HeroCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAAA34D1E7E08F500C18D48 /* HeroCollectionViewCell.swift */; };
@@ -94,6 +95,7 @@
 		2CF1DB501E6FBFD3006AA193 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		2CF1DB511E6FBFD3006AA193 /* InMemoryStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InMemoryStack.swift; sourceTree = "<group>"; };
 		2CF1DB521E6FBFD3006AA193 /* ResettingStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResettingStack.swift; sourceTree = "<group>"; };
+		EF250FEF1E80C5B3009BC013 /* Character+Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Character+Images.swift"; sourceTree = "<group>"; };
 		EFAAA3491E7DF44B00C18D48 /* NSLayoutConstraint+FFStandardMetrics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+FFStandardMetrics.swift"; sourceTree = "<group>"; };
 		EFAAA34B1E7DFFBD00C18D48 /* LiveDraftIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveDraftIntroViewController.swift; sourceTree = "<group>"; };
 		EFAAA34D1E7E08F500C18D48 /* HeroCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 				2CF1DAFC1E623303006AA193 /* Result.swift */,
 				2CF1DB041E62390F006AA193 /* URLPathComponent.swift */,
 				EFAAA3491E7DF44B00C18D48 /* NSLayoutConstraint+FFStandardMetrics.swift */,
+				EF250FEF1E80C5B3009BC013 /* Character+Images.swift */,
 			);
 			name = Conveniences;
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 				2CF1DB0C1E6249D4006AA193 /* MatchRequest.swift in Sources */,
 				2CF1DB461E6FB654006AA193 /* Participant.swift in Sources */,
 				2CF1DB551E6FBFD3006AA193 /* ResettingStack.swift in Sources */,
+				EF250FF01E80C5B3009BC013 /* Character+Images.swift in Sources */,
 				2CF1DB171E62A0EF006AA193 /* Relationship.swift in Sources */,
 				2CF1DB1F1E6FB158006AA193 /* VainGlory.xcdatamodeld in Sources */,
 				2CF1DB401E6FB654006AA193 /* MatchUp.swift in Sources */,

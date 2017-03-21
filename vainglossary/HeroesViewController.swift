@@ -32,6 +32,8 @@ class HeroesViewController: UITableViewController {
         super.viewDidLoad()
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+        
+        try? heroResultsController.performFetch()
     }
     
     //==========================================================================
@@ -50,7 +52,7 @@ class HeroesViewController: UITableViewController {
         let character = heroResultsController.object(at: indexPath)
         
         cell.textLabel?.text = character.name
-        cell.imageView?.image = UIImage(named: character.name + "-icon")
+        cell.imageView?.image = UIImage(named: character.smallIconName)
         
         return cell
     }
