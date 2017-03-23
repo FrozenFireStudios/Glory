@@ -60,7 +60,10 @@ class Database {
         
         try stack.backgroundContext.performAndThrow { (context) in
             let oldFR = T.request()
-            oldFR.predicate = NSPredicate(format: "NOT (%K IN %@)", "id", ids)
+            
+            if ids.count < 100 {
+                oldFR.predicate = NSPredicate(format: "NOT (%K IN %@)", "id", ids)
+            }
             
             let oldObjects = try oldFR.execute()
             oldObjects.forEach { context.delete($0) }
@@ -70,6 +73,8 @@ class Database {
                 let jsonDict = dictsByID[id]!
                 try object.update(from: jsonDict, in: context)
             }
+            
+            print("Saved \(ids.count) \(type)s")
             
             try context.save()
         }

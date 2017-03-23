@@ -106,7 +106,7 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
             return draft.recommendationsForNextPick()
         }
         else {
-            return draft.remainingCharacters()
+            return draft.remainingCharacters
         }
     }
     
@@ -187,7 +187,7 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
         let contents = try! FileManager.default.contentsOfDirectory(atPath: documentsPath)
         
         while contents.count <= 34 {
-            let character = draft.remainingCharacters().first!
+            let character = draft.remainingCharacters.first!
             
             print(documentsPath)
             
