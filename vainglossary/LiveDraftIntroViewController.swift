@@ -31,11 +31,11 @@ class LiveDraftIntroViewController: UIViewController {
         let stackView = UIStackView(arrangedSubviews: [titleLabel, descriptionLabel, startButton])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.spacing = CGFloat(FFMargin)
+        stackView.spacing = CGFloat(FFDoubleMargin)
         
         view.addSubview(stackView)
         
-        NSLayoutConstraint.activeConstraintsWithFormat("H:|-(Margin)-[stack]-(Margin)-|", views: ["stack": stackView])
+        NSLayoutConstraint.activeConstraintsWithFormat("H:|-(DoubleMargin)-[stack]-(DoubleMargin)-|", views: ["stack": stackView])
         stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
     
@@ -62,7 +62,7 @@ class LiveDraftIntroViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         
-        label.font = UIFont.preferredFont(forTextStyle: .headline)
+        label.font = UIFont.preferredFont(forTextStyle: .title1)
         label.textAlignment = .center
         label.textColor = .lightText
         
@@ -75,7 +75,7 @@ class LiveDraftIntroViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         
-        label.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        label.font = UIFont.preferredFont(forTextStyle: .title2)
         label.textAlignment = .center
         label.textColor = .white
         label.numberOfLines = 0
@@ -85,11 +85,16 @@ class LiveDraftIntroViewController: UIViewController {
         return label
     }()
     
-    lazy var startButton: UIButton = {
-        let button = UIButton(type: .system)
+    lazy var startButton: FFBorderButton = {
+        let button = FFBorderButton()
         button.translatesAutoresizingMaskIntoConstraints = false
+        
+        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .title1)
+        
         button.setTitle("Start Draft", for: .normal)
+        
         button.addTarget(self, action: #selector(LiveDraftIntroViewController.startDraft), for: .primaryActionTriggered)
+        
         return button
     }()
 }

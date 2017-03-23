@@ -49,6 +49,7 @@
 		EFD138DC1E70FE8400ECC059 /* LiveDraftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD138DB1E70FE8400ECC059 /* LiveDraftViewController.swift */; };
 		EFD138DE1E70FE8D00ECC059 /* DraftStrategyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD138DD1E70FE8D00ECC059 /* DraftStrategyViewController.swift */; };
 		EFD138E01E70FEB600ECC059 /* MatchHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD138DF1E70FEB600ECC059 /* MatchHistoryViewController.swift */; };
+		EFF986731E83582900B8584C /* FFBorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF986721E83582900B8584C /* FFBorderButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,7 @@
 		EFD138DB1E70FE8400ECC059 /* LiveDraftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveDraftViewController.swift; sourceTree = "<group>"; };
 		EFD138DD1E70FE8D00ECC059 /* DraftStrategyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraftStrategyViewController.swift; sourceTree = "<group>"; };
 		EFD138DF1E70FEB600ECC059 /* MatchHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchHistoryViewController.swift; sourceTree = "<group>"; };
+		EFF986721E83582900B8584C /* FFBorderButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FFBorderButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +233,7 @@
 				2CF1DAFC1E623303006AA193 /* Result.swift */,
 				2CF1DB041E62390F006AA193 /* URLPathComponent.swift */,
 				EFAAA3491E7DF44B00C18D48 /* NSLayoutConstraint+FFStandardMetrics.swift */,
+				EFF986721E83582900B8584C /* FFBorderButton.swift */,
 				EF250FEF1E80C5B3009BC013 /* Character+Images.swift */,
 				EF4745851E81DB2C0009FAF8 /* UIColor+Glory.swift */,
 			);
@@ -350,6 +353,7 @@
 				TargetAttributes = {
 					2CF1DAD61E622E84006AA193 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = Y5QZY6467R;
 						ProvisioningStyle = Automatic;
 					};
 					2CF1DAEA1E622E84006AA193 = {
@@ -424,6 +428,7 @@
 				2CF1DB3E1E6FB654006AA193 /* Item.swift in Sources */,
 				2CF1DB441E6FB654006AA193 /* Character.swift in Sources */,
 				2CF1DB541E6FBFD3006AA193 /* InMemoryStack.swift in Sources */,
+				EFF986731E83582900B8584C /* FFBorderButton.swift in Sources */,
 				2CF1DB4F1E6FBF8B006AA193 /* Database.swift in Sources */,
 				2CF1DB0C1E6249D4006AA193 /* MatchRequest.swift in Sources */,
 				2CF1DB461E6FB654006AA193 /* Participant.swift in Sources */,
@@ -569,6 +574,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Y5QZY6467R;
 				INFOPLIST_FILE = vainglossary/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.frozenfirestudios.vainglossary;
@@ -581,6 +587,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Y5QZY6467R;
 				INFOPLIST_FILE = vainglossary/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.frozenfirestudios.vainglossary;

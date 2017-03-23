@@ -34,6 +34,8 @@ class HeroesViewController: UITableViewController {
         tableView.backgroundView = nil
         tableView.backgroundColor = .darkBackground
         
+        tableView.separatorColor = .black
+        
         tableView.rowHeight = 64.0
         
         tableView.register(HeroTableViewCell.self, forCellReuseIdentifier: cellIdentifier)
@@ -56,8 +58,8 @@ class HeroesViewController: UITableViewController {
         
         let character = heroResultsController.object(at: indexPath)
         
-        cell.textLabel?.text = character.name
-        cell.imageView?.image = UIImage(named: character.smallIconName)
+        cell.titleLabel.text = character.name
+        cell.iconView.image = UIImage(named: character.smallIconName)
         
         return cell
     }

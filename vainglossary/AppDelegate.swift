@@ -19,17 +19,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         database = Database(madGloryAPIKey: apiKey)
-        database.update { result in
-            switch result {
-            case .success:
-                print("Database updated successfully")
-            case .failure(let error):
-                print("Database failed to update with error: \(error)")
-            }
-        }
+//        database.update { result in
+//            switch result {
+//            case .success:
+//                print("Database updated successfully")
+//            case .failure(let error):
+//                print("Database failed to update with error: \(error)")
+//            }
+//        }
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = .black
+        window?.tintColor = .tintColor
         window?.makeKeyAndVisible()
         
         let draftStrategyViewController = DraftStrategyViewController()

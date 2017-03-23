@@ -26,17 +26,52 @@ class HeroViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = .background
+        
         backgroundImageView.image = UIImage(named: hero.largeIconName)
         
         view.addSubview(backgroundImageView)
+        view.addSubview(detailBackgroundView)
+        
+        let bestAgainst = (try? hero.bestAgainst()) ?? []
+        let worstAgainst = (try? hero.bestCounters()) ?? []
+        
+        let bestAgainstStackView = relatedHeroesStackView(heroes: bestAgainst)
+        let worstAgainstStackView = relatedHeroesStackView(heroes: worstAgainst)
+        
+        let bestAgainstLabel = relatedHeroesLabel(title: "Best Against:")
+        let worstAgainstLabel = relatedHeroesLabel(title: "Countered By:")
+        
+        detailBackgroundView.addSubview(bestAgainstLabel)
+        detailBackgroundView.addSubview(bestAgainstStackView)
+        detailBackgroundView.addSubview(worstAgainstLabel)
+        detailBackgroundView.addSubview(worstAgainstStackView)
         
         let views: [String:UIView] = [
-            "background": backgroundImageView
+            "background": backgroundImageView,
+            "details": detailBackgroundView,
+            "bestAgainstLabel": bestAgainstLabel,
+            "bestAgainstStack": bestAgainstStackView,
+            "worstAgainstLabel": worstAgainstLabel,
+            "worstAgainstStack": worstAgainstStackView
         ]
         
         NSLayoutConstraint.activeConstraintsWithFormat("H:|[background]|", views: views)
-        NSLayoutConstraint.activeConstraintsWithFormat("V:|[background]|", views: views)
+        NSLayoutConstraint.activeConstraintsWithFormat("H:|[details]|", views: views)
+        NSLayoutConstraint.activeConstraintsWithFormat("H:|-(Margin)-[bestAgainstLabel]-(Margin)-|", views: views)
+        NSLayoutConstraint.activeConstraintsWithFormat("H:|-(Margin)-[bestAgainstStack]-(>=Margin)-|", views: views)
+        NSLayoutConstraint.activeConstraintsWithFormat("H:|-(Margin)-[worstAgainstLabel]-(Margin)-|", views: views)
+        NSLayoutConstraint.activeConstraintsWithFormat("H:|-(Margin)-[worstAgainstStack]-(>=Margin)-|", views: views)
+        
+        NSLayoutConstraint.activeConstraintsWithFormat("V:|[background(580.0)]", views: views)
+        detailBackgroundView.topAnchor.constraint(equalTo: backgroundImageView.bottomAnchor, constant: -140.0).isActive = true
+        detailBackgroundView.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor).isActive = true
+        NSLayoutConstraint.activeConstraintsWithFormat("V:|-(Margin)-[bestAgainstLabel]-(Padding)-[bestAgainstStack(==worstAgainstStack)]-(Margin)-[worstAgainstLabel]-(Padding)-[worstAgainstStack(==bestAgainstStack)]-(Margin)-|", views: views)
     }
+    
+    //==========================================================================
+    // MARK: - Actions
+    //==========================================================================
     
     //==========================================================================
     // MARK: - Views
@@ -50,4 +85,38 @@ class HeroViewController: UIViewController {
         return imageView
     }()
     
+    lazy var detailBackgroundView: UIVisualEffectView = {
+        let effectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
+        effectView.translatesAutoresizingMaskIntoConstraints = false
+        return effectView
+    }()
+    
+    func relatedHeroesStackView(heroes: [Character]) -> UIStackView {
+        let imageViews = heroes.map { (hero) -> UIImageView in
+            let imageView = UIImageView(image: UIImage(named: hero.smallIconName))
+            imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor).isActive = true
+            return imageView
+        }
+        
+        let stackView = UIStackView(arrangedSubviews: imageViews)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .horizontal
+        stackView.distribution = .equalCentering
+        stackView.spacing = CGFloat(FFMargin)
+        
+        return stackView
+    }
+    
+    func relatedHeroesLabel(title: String) -> UILabel {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.setContentCompressionResistancePriority(UILayoutPriorityRequired, for: .vertical)
+        
+        label.textColor = .lightText
+        label.font = UIFont.preferredFont(forTextStyle: .headline)
+        
+        label.text = title
+        
+        return label
+    }
 }
