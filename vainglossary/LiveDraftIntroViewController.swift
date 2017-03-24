@@ -17,6 +17,7 @@ class LiveDraftIntroViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         
         self.title = "Live Draft"
+        self.tabBarItem.image = #imageLiteral(resourceName: "draft")
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -28,14 +29,31 @@ class LiveDraftIntroViewController: UIViewController {
         
         view.backgroundColor = .background
         
+        backgroundImageView.image = #imageLiteral(resourceName: "BackgroundC")
+        
+        view.addSubview(backgroundImageView)
+        view.addSubview(backgroundBlurView)
+        
         let stackView = UIStackView(arrangedSubviews: [titleLabel, descriptionLabel, startButton])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.spacing = CGFloat(FFDoubleMargin)
+        stackView.spacing = 64.0
         
         view.addSubview(stackView)
         
-        NSLayoutConstraint.activeConstraintsWithFormat("H:|-(DoubleMargin)-[stack]-(DoubleMargin)-|", views: ["stack": stackView])
+        let views: [String:UIView] = [
+            "background": backgroundImageView,
+            "backgroundBlur": backgroundBlurView,
+            "stack": stackView
+        ]
+        
+        NSLayoutConstraint.activeConstraintsWithFormat("H:|[background]|", views: views)
+        NSLayoutConstraint.activeConstraintsWithFormat("V:|[background]|", views: views)
+        
+        NSLayoutConstraint.activeConstraintsWithFormat("H:|[backgroundBlur]|", views: views)
+        NSLayoutConstraint.activeConstraintsWithFormat("V:|[backgroundBlur]|", views: views)
+        
+        NSLayoutConstraint.activeConstraintsWithFormat("H:|-(Margin)-[stack]-(Margin)-|", views: views)
         stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
     
@@ -58,13 +76,26 @@ class LiveDraftIntroViewController: UIViewController {
     // MARK: - Views
     //==========================================================================
     
+    lazy var backgroundImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+    }()
+    
+    lazy var backgroundBlurView: UIVisualEffectView = {
+        let effectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
+        effectView.translatesAutoresizingMaskIntoConstraints = false
+        return effectView
+    }()
+    
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         
-        label.font = UIFont.preferredFont(forTextStyle: .title1)
-        label.textAlignment = .center
-        label.textColor = .lightText
+        label.font = UIFont.systemFont(ofSize: 48.0, weight: UIFontWeightThin)
+        label.textColor = .white
         
         label.text = "Live Draft"
         
@@ -75,12 +106,11 @@ class LiveDraftIntroViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         
-        label.font = UIFont.preferredFont(forTextStyle: .title2)
-        label.textAlignment = .center
-        label.textColor = .white
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.textColor = .lightGrayText
         label.numberOfLines = 0
         
-        label.text = "We will give you recommendations for draft picks during the draft."
+        label.text = "Live draft helps you make the best picks while you're drafting. You can use Live draft on a separate iPhone or slideover on the iPad for one device gaming.\n\nAs draft picks are made enter them into the Live Draft and recommendations for the next pick will be updated automatically."
         
         return label
     }()

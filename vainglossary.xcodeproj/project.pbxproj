@@ -37,6 +37,8 @@
 		2CF1DB531E6FBFD3006AA193 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1DB501E6FBFD3006AA193 /* CoreDataStack.swift */; };
 		2CF1DB541E6FBFD3006AA193 /* InMemoryStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1DB511E6FBFD3006AA193 /* InMemoryStack.swift */; };
 		2CF1DB551E6FBFD3006AA193 /* ResettingStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1DB521E6FBFD3006AA193 /* ResettingStack.swift */; };
+		EF04F9471E84B61C00DF004E /* HeroesCollectionTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF04F9461E84B61C00DF004E /* HeroesCollectionTitleView.swift */; };
+		EF04F9491E84B78300DF004E /* LiveDraftFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF04F9481E84B78300DF004E /* LiveDraftFlowLayout.swift */; };
 		EF250FF01E80C5B3009BC013 /* Character+Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF250FEF1E80C5B3009BC013 /* Character+Images.swift */; };
 		EF4745841E81D9DD0009FAF8 /* HeroTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4745831E81D9DD0009FAF8 /* HeroTableViewCell.swift */; };
 		EF4745861E81DB2C0009FAF8 /* UIColor+Glory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4745851E81DB2C0009FAF8 /* UIColor+Glory.swift */; };
@@ -97,6 +99,8 @@
 		2CF1DB501E6FBFD3006AA193 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		2CF1DB511E6FBFD3006AA193 /* InMemoryStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InMemoryStack.swift; sourceTree = "<group>"; };
 		2CF1DB521E6FBFD3006AA193 /* ResettingStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResettingStack.swift; sourceTree = "<group>"; };
+		EF04F9461E84B61C00DF004E /* HeroesCollectionTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroesCollectionTitleView.swift; sourceTree = "<group>"; };
+		EF04F9481E84B78300DF004E /* LiveDraftFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveDraftFlowLayout.swift; sourceTree = "<group>"; };
 		EF250FEF1E80C5B3009BC013 /* Character+Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Character+Images.swift"; sourceTree = "<group>"; };
 		EF4745831E81D9DD0009FAF8 /* HeroTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroTableViewCell.swift; sourceTree = "<group>"; };
 		EF4745851E81DB2C0009FAF8 /* UIColor+Glory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Glory.swift"; sourceTree = "<group>"; };
@@ -285,9 +289,11 @@
 		EF4745871E81DFCB0009FAF8 /* Live Draft */ = {
 			isa = PBXGroup;
 			children = (
-				EFD138DB1E70FE8400ECC059 /* LiveDraftViewController.swift */,
 				EFAAA34B1E7DFFBD00C18D48 /* LiveDraftIntroViewController.swift */,
+				EFD138DB1E70FE8400ECC059 /* LiveDraftViewController.swift */,
 				EFAAA34D1E7E08F500C18D48 /* HeroCollectionViewCell.swift */,
+				EF04F9461E84B61C00DF004E /* HeroesCollectionTitleView.swift */,
+				EF04F9481E84B78300DF004E /* LiveDraftFlowLayout.swift */,
 			);
 			name = "Live Draft";
 			sourceTree = "<group>";
@@ -412,6 +418,7 @@
 				2CF1DB531E6FBFD3006AA193 /* CoreDataStack.swift in Sources */,
 				2CF1DB051E62390F006AA193 /* URLPathComponent.swift in Sources */,
 				EFAAA34A1E7DF44B00C18D48 /* NSLayoutConstraint+FFStandardMetrics.swift in Sources */,
+				EF04F9491E84B78300DF004E /* LiveDraftFlowLayout.swift in Sources */,
 				2CF1DB4B1E6FBA62006AA193 /* Build.swift in Sources */,
 				2CF1DB151E628385006AA193 /* ObjectData.swift in Sources */,
 				2CF1DAFB1E623110006AA193 /* MadGloryService.swift in Sources */,
@@ -440,6 +447,7 @@
 				EF4745841E81D9DD0009FAF8 /* HeroTableViewCell.swift in Sources */,
 				EFAAA34E1E7E08F500C18D48 /* HeroCollectionViewCell.swift in Sources */,
 				2CAEFE0E1E7CD98700ED702C /* GloryBackendService.swift in Sources */,
+				EF04F9471E84B61C00DF004E /* HeroesCollectionTitleView.swift in Sources */,
 				2CF1DAFD1E623303006AA193 /* Result.swift in Sources */,
 				2CF1DB491E6FB8B7006AA193 /* Entity.swift in Sources */,
 				2CF1DADB1E622E84006AA193 /* AppDelegate.swift in Sources */,

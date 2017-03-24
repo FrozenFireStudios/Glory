@@ -60,7 +60,7 @@ class HeroTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         
         label.textAlignment = .center
-        label.textColor = .lightText
+        label.textColor = .lightGrayText
         label.font = UIFont.preferredFont(forTextStyle: .title3)
         
         return label

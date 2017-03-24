@@ -27,7 +27,7 @@ import UIKit
  
  */
 
-class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     let draft: Draft
     init(draft: Draft) {
@@ -36,6 +36,8 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
         super.init(nibName: nil, bundle: nil)
         
         self.title = "Live Draft"
+        
+        self.modalPresentationStyle = .overFullScreen
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -45,11 +47,11 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .background
-        
         titleLabel.text = "Ban a Hero"
         
         view.addSubview(backgroundImageView)
+        view.addSubview(backgroundBlurView)
+        backgroundBlurView.contentView.addSubview(vibrancyView)
         view.addSubview(cancelButton)
         view.addSubview(titleLabel)
         view.addSubview(picksView)
@@ -57,8 +59,15 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
         picksView.addSubview(teamBPicksStack)
         view.addSubview(heroesCollection)
         
+        let picksBackgroundView = UIView()
+        picksBackgroundView.translatesAutoresizingMaskIntoConstraints = false
+        picksBackgroundView.backgroundColor = UIColor(white: 1.0, alpha: 0.25)
+        vibrancyView.contentView.addSubview(picksBackgroundView)
+        
         let views: [String:UIView] = [
             "background": backgroundImageView,
+            "backgroundBlur": backgroundBlurView,
+            "vibrancy": vibrancyView,
             "cancel": cancelButton,
             "title": titleLabel,
             "picks": picksView,
@@ -70,17 +79,29 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
         NSLayoutConstraint.activeConstraintsWithFormat("H:|[background]|", views: views)
         NSLayoutConstraint.activeConstraintsWithFormat("V:|[background]|", views: views)
         
+        NSLayoutConstraint.activeConstraintsWithFormat("H:|[backgroundBlur]|", views: views)
+        NSLayoutConstraint.activeConstraintsWithFormat("V:|[backgroundBlur]|", views: views)
+        
+        NSLayoutConstraint.activeConstraintsWithFormat("H:|[vibrancy]|", views: views)
+        NSLayoutConstraint.activeConstraintsWithFormat("V:|[vibrancy]|", views: views)
+        
+        picksBackgroundView.topAnchor.constraint(equalTo: picksView.topAnchor).isActive = true
+        picksBackgroundView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        picksBackgroundView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        picksBackgroundView.bottomAnchor.constraint(equalTo: picksView.bottomAnchor).isActive = true
+        
         NSLayoutConstraint.activeConstraintsWithFormat("H:|[teamA]-(>=Padding)-[teamB]|", views: views)
         NSLayoutConstraint.activeConstraintsWithFormat("V:|-(Padding)-[teamA]-(Padding)-|", views: views)
         NSLayoutConstraint.activeConstraintsWithFormat("V:|-(Padding)-[teamB]-(Padding)-|", views: views)
         teamAPicksStack.heightAnchor.constraint(equalToConstant: 36.0).isActive = true
         
-        NSLayoutConstraint.activeConstraintsWithFormat("H:|-(Margin)-[cancel]-(Margin)-[title]-(Margin)-|", views: views)
+        NSLayoutConstraint.activeConstraintsWithFormat("H:|-(Margin)-[title]-(Margin)-|", views: views)
+        NSLayoutConstraint.activeConstraintsWithFormat("H:|[cancel(==68.0)]", views: views)
         NSLayoutConstraint.activeConstraintsWithFormat("H:|-(Margin)-[picks]-(Margin)-|", views: views)
         NSLayoutConstraint.activeConstraintsWithFormat("H:|[heroes]|", views: views)
         
-        cancelButton.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor, constant: CGFloat(FFPadding)).isActive = true
         titleLabel.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor, constant: CGFloat(FFPadding)).isActive = true
+        NSLayoutConstraint.activeConstraintsWithFormat("V:|[cancel(==88.0)]", views: views)
         NSLayoutConstraint.activeConstraintsWithFormat("V:[title]-(Margin)-[picks]-(Margin)-[heroes]", views: views)
         heroesCollection.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor).isActive = true
     }
@@ -169,13 +190,16 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
             
             imageView.layer.cornerRadius = self.teamAPicksStack.frame.height / 2.0
             
-            // TODO: Overlay ban (/) symbol
-            if banned {
-                imageView.layer.borderColor = UIColor.red.cgColor
-                imageView.layer.borderWidth = 2.0
-            }
-            
             stackView.addArrangedSubview(imageView)
+            
+            if banned {
+                let banView = UIImageView(image: #imageLiteral(resourceName: "ban"))
+                banView.translatesAutoresizingMaskIntoConstraints = false
+                imageView.addSubview(banView)
+                
+                NSLayoutConstraint.activeConstraintsWithFormat("H:|[ban]|", views: ["ban": banView])
+                NSLayoutConstraint.activeConstraintsWithFormat("V:|[ban]|", views: ["ban": banView])
+            }
         }
         return function
     }
@@ -226,6 +250,12 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: UICollectionElementKindSectionHeader, for: indexPath) as! HeroesCollectionTitleView
+        view.titleLabel.text = "Recommended"
+        return view
+    }
+    
     //==========================================================================
     // MARK: - UICollectionViewDelegate
     //==========================================================================
@@ -238,6 +268,18 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     
     //==========================================================================
+    // MARK: - UICollectionViewDelegateFlowLayout
+    //==========================================================================
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        if section == 0 {
+            return CGSize(width: view.frame.width, height: 32.0)
+        }
+        
+        return .zero
+    }
+    
+    //==========================================================================
     // MARK: - Views
     //==========================================================================
     
@@ -245,7 +287,8 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setContentHuggingPriority(UILayoutPriorityRequired, for: .horizontal)
-        button.setTitle("Cancel", for: .normal)
+        button.setTitle("Done", for: .normal)
+        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .title3)
         button.addTarget(self, action: #selector(LiveDraftViewController.cancel), for: .primaryActionTriggered)
         return button
     }()
@@ -256,13 +299,26 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
         return imageView
     }()
     
+    let blurEffect = UIBlurEffect(style: .dark)
+    lazy var backgroundBlurView: UIVisualEffectView = {
+        let effectView = UIVisualEffectView(effect: self.blurEffect)
+        effectView.translatesAutoresizingMaskIntoConstraints = false
+        return effectView
+    }()
+    
+    lazy var vibrancyView: UIVisualEffectView = {
+        let effectView = UIVisualEffectView(effect: UIVibrancyEffect(blurEffect: self.blurEffect))
+        effectView.translatesAutoresizingMaskIntoConstraints = false
+        return effectView
+    }()
+    
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         
-        label.font = UIFont.preferredFont(forTextStyle: .title1)
+        label.font = UIFont.systemFont(ofSize: 28.0, weight: UIFontWeightThin)
         label.textAlignment = .center
-        label.textColor = .lightText
+        label.textColor = .lightGrayText
         
         return label
     }()
@@ -270,7 +326,6 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
     lazy var picksView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor.black.withAlphaComponent(0.25)
         return view
     }()
     
@@ -294,8 +349,8 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
         return stackView
     }()
     
-    lazy var layout: UICollectionViewFlowLayout = {
-        let layout = UICollectionViewFlowLayout()
+    lazy var layout: LiveDraftFlowLayout = {
+        let layout = LiveDraftFlowLayout()
         
         layout.itemSize = CGSize(width: 100, height: 100)
         
@@ -318,6 +373,7 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
         collectionView.delegate = self
         
         collectionView.register(HeroCollectionViewCell.self, forCellWithReuseIdentifier: self.cellReuseIdentifier)
+        collectionView.register(HeroesCollectionTitleView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: UICollectionElementKindSectionHeader)
         
         return collectionView
     }()

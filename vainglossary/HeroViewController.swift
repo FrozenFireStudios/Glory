@@ -63,8 +63,9 @@ class HeroViewController: UIViewController {
         NSLayoutConstraint.activeConstraintsWithFormat("H:|-(Margin)-[worstAgainstLabel]-(Margin)-|", views: views)
         NSLayoutConstraint.activeConstraintsWithFormat("H:|-(Margin)-[worstAgainstStack]-(>=Margin)-|", views: views)
         
-        NSLayoutConstraint.activeConstraintsWithFormat("V:|[background(580.0)]", views: views)
-        detailBackgroundView.topAnchor.constraint(equalTo: backgroundImageView.bottomAnchor, constant: -140.0).isActive = true
+        NSLayoutConstraint.activeConstraintsWithFormat("V:|[background]", views: views)
+        detailBackgroundView.topAnchor.constraint(greaterThanOrEqualTo: backgroundImageView.bottomAnchor, constant: -128.0).isActive = true
+        detailBackgroundView.topAnchor.constraint(greaterThanOrEqualTo: view.centerYAnchor).isActive = true
         detailBackgroundView.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor).isActive = true
         NSLayoutConstraint.activeConstraintsWithFormat("V:|-(Margin)-[bestAgainstLabel]-(Padding)-[bestAgainstStack(==worstAgainstStack)]-(Margin)-[worstAgainstLabel]-(Padding)-[worstAgainstStack(==bestAgainstStack)]-(Margin)-|", views: views)
     }
@@ -112,7 +113,7 @@ class HeroViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.setContentCompressionResistancePriority(UILayoutPriorityRequired, for: .vertical)
         
-        label.textColor = .lightText
+        label.textColor = .lightGrayText
         label.font = UIFont.preferredFont(forTextStyle: .headline)
         
         label.text = title

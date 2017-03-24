@@ -13,7 +13,8 @@ class DraftStrategyViewController: UIViewController {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
-        title = "Draft Strategy"
+        self.title = "Draft Strategy"
+        self.tabBarItem.image = #imageLiteral(resourceName: "strategy")
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -25,21 +26,28 @@ class DraftStrategyViewController: UIViewController {
         
         view.backgroundColor = .background
         
+        backgroundImageView.image = #imageLiteral(resourceName: "BackgroundB")
+        
         if let path = Bundle.main.path(forResource: "strategy", ofType: "txt") {
             let strategyText = try? String(contentsOfFile: path)
             textView.text = strategyText ?? "Failed to load strategy"
         }
         
         view.addSubview(backgroundImageView)
+        view.addSubview(backgroundBlurView)
         view.addSubview(textView)
         
         let views: [String:UIView] = [
             "background": backgroundImageView,
+            "backgroundBlur": backgroundBlurView,
             "text": textView
         ]
         
         NSLayoutConstraint.activeConstraintsWithFormat("H:|[background]|", views: views)
         NSLayoutConstraint.activeConstraintsWithFormat("V:|[background]|", views: views)
+        
+        NSLayoutConstraint.activeConstraintsWithFormat("H:|[backgroundBlur]|", views: views)
+        NSLayoutConstraint.activeConstraintsWithFormat("V:|[backgroundBlur]|", views: views)
         
         NSLayoutConstraint.activeConstraintsWithFormat("H:|[text]|", views: views)
         textView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor).isActive = true
@@ -59,14 +67,23 @@ class DraftStrategyViewController: UIViewController {
     lazy var backgroundImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFill
         return imageView
+    }()
+    
+    lazy var backgroundBlurView: UIVisualEffectView = {
+        let effectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
+        effectView.translatesAutoresizingMaskIntoConstraints = false
+        return effectView
     }()
     
     lazy var textView: UITextView = {
         let textView = UITextView()
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.backgroundColor = .clear
-        textView.textColor = .lightText
+        textView.textColor = .lightGrayText
+        textView.font = UIFont.preferredFont(forTextStyle: .body)
         return textView
     }()
 }

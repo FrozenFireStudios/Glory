@@ -21,7 +21,8 @@ class HeroesViewController: UITableViewController {
         
         super.init(style: .plain)
         
-        title = "Heroes"
+        self.title = "Heroes"
+        self.tabBarItem.image = #imageLiteral(resourceName: "heroes")
     }
     
     required init?(coder aDecoder: NSCoder) {
