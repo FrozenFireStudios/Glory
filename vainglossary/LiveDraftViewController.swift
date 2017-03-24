@@ -145,22 +145,22 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
             titleLabel.text = "Team B Ban"
         }
         else if draft.teamAPick1 == nil {
-            titleLabel.text = "Team A Pick"
+            titleLabel.text = "Team A 1st Pick"
         }
         else if draft.teamBPick1 == nil {
-            titleLabel.text = "Team B Pick"
+            titleLabel.text = "Team B 1st Pick"
         }
         else if draft.teamBPick2 == nil {
-            titleLabel.text = "Team B Pick"
+            titleLabel.text = "Team B 2nd Pick"
         }
         else if draft.teamAPick2 == nil {
-            titleLabel.text = "Team A Pick"
+            titleLabel.text = "Team A 2nd Pick"
         }
         else if draft.teamAPick3 == nil {
-            titleLabel.text = "Team A Pick"
+            titleLabel.text = "Team A 3rd Pick"
         }
         else if draft.teamBPick3 == nil {
-            titleLabel.text = "Team B Pick"
+            titleLabel.text = "Team B 3rd Pick"
         }
     }
     
@@ -273,7 +273,7 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         if section == 0 {
-            return CGSize(width: view.frame.width, height: 32.0)
+            return CGSize(width: view.frame.width, height: 36.0)
         }
         
         return .zero
@@ -354,7 +354,7 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
         
         layout.itemSize = CGSize(width: 100, height: 100)
         
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: CGFloat(FFDoubleMargin), right: 0)
+        layout.sectionInset = UIEdgeInsets(top: CGFloat(FFMargin), left: CGFloat(FFMargin), bottom: CGFloat(FFDoubleMargin), right: CGFloat(FFMargin))
         
         return layout
     }()
@@ -366,8 +366,6 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
         collectionView.backgroundColor = .clear
         
         collectionView.bounces = true
-        
-        collectionView.contentInset = UIEdgeInsets(top: 0.0, left: CGFloat(FFMargin), bottom: 0.0, right: CGFloat(FFMargin))
         
         collectionView.dataSource = self
         collectionView.delegate = self

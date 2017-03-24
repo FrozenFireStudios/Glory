@@ -16,8 +16,8 @@ class HeroesCollectionTitleView: UICollectionReusableView {
         
         let views: [String:UIView] = ["title": titleLabel]
         
-        NSLayoutConstraint.activeConstraintsWithFormat("H:|[title]|", views: views)
-        NSLayoutConstraint.activeConstraintsWithFormat("V:|[title]", views: views)
+        NSLayoutConstraint.activeConstraintsWithFormat("H:|-(Margin)-[title]-(Margin)-|", views: views)
+        NSLayoutConstraint.activeConstraintsWithFormat("V:|-(Padding)-[title]", views: views)
     }
     
     required init?(coder aDecoder: NSCoder) {
