@@ -22,6 +22,8 @@ class Draft {
     
     private(set) var isNextPickTeamA = true
     
+    var recommendationCount = 6
+    
     var bans: [Character] {
         return [teamABan, teamBBan].flatMap {$0}
     }
@@ -43,12 +45,14 @@ class Draft {
         return _allCharacters ?? []
     }
     
+    var recommendationsForNextPick: [Character] {
+        return Array(nextRecommendations.prefix(recommendationCount))
+    }
+    
     /// All Heroes not already picked, banned, or recommended
     var remainingCharacters: [Character] {
-        let characters = Set<Character>(allCharacters)
-        let takenCharacters = Set<Character>(pickedCharacters + nextRecommendations)
-        
-        return characters.subtracting(takenCharacters).sorted(by: { $0.name < $1.name })
+        let remainingCount = max(0, nextRecommendations.count - recommendationCount)
+        return Array(nextRecommendations.suffix(remainingCount)).sorted(by: { $0.name < $1.name })
     }
     
     private var pickedCharacters: [Character] {
@@ -142,10 +146,6 @@ class Draft {
         }
         
         generateNextRecommendations()
-    }
-    
-    func recommendationsForNextPick(count: Int = 3) -> [Character] {
-        return Array(nextRecommendations.prefix(count))
     }
     
     private func fetchAllCharacters() throws -> [Character] {

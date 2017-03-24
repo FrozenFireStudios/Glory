@@ -124,7 +124,7 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
     
     func characters(section: Int) -> [Character] {
         if section == 0 {
-            return draft.recommendationsForNextPick()
+            return draft.recommendationsForNextPick
         }
         else {
             return draft.remainingCharacters

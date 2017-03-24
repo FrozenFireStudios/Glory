@@ -14,9 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var database: Database!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        guard let apiKey = ProcessInfo.processInfo.environment["vgAPIKey"] else {
-            fatalError("API Key required")
-        }
+        let apiKey = ProcessInfo.processInfo.environment["vgAPIKey"] ?? "" // App currently doesn't need this
         
         database = Database(madGloryAPIKey: apiKey)
         database.update { result in
