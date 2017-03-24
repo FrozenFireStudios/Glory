@@ -354,7 +354,7 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
         
         layout.itemSize = CGSize(width: 100, height: 100)
         
-        layout.sectionInset = UIEdgeInsets(top: CGFloat(FFMargin), left: CGFloat(FFMargin), bottom: CGFloat(FFDoubleMargin), right: CGFloat(FFMargin))
+        layout.sectionInset = UIEdgeInsets(top: CGFloat(FFMargin), left: CGFloat(FFMargin), bottom: CGFloat(FFMargin), right: CGFloat(FFMargin))
         
         return layout
     }()
