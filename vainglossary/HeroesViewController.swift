@@ -9,10 +9,12 @@
 import UIKit
 import CoreData
 
-class HeroesViewController: UITableViewController {
+class HeroesViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
     lazy var heroResultsController: NSFetchedResultsController<Character> = {
-        return self.database.createCharacterResultsController()
+        let frc = self.database.createCharacterResultsController()
+        frc.delegate = self
+        return frc
     }()
     
     let database: Database
@@ -74,5 +76,12 @@ class HeroesViewController: UITableViewController {
         
         let heroViewController = HeroViewController(hero: hero)
         navigationController?.pushViewController(heroViewController, animated: true)
+    }
+    
+    //==========================================================================
+    // MARK: - NSFetchedResultsControllerDelegate
+    //==========================================================================
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.reloadData()
     }
 }

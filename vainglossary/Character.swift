@@ -92,6 +92,40 @@ class Character: NSManagedObject, IntIdentifiableEntity, JSONInstantiableEntity 
             return 0
         }
         
+        var allowedBuilds: Set<Build> = [.weapon, .crystal, .support]
+        var allowedRoles: Set<Role> = [.carry, .jungler, .captain]
+        
+        // Remove any builds taken by non-flexible characters
+        with.filter { $0.builds.count == 1 }.forEach { character in
+            let takenBuild = character.builds.first!
+            allowedBuilds.remove(takenBuild)
+        }
+        
+        // Remove any roles taken by non-flexible characters
+        with.filter { $0.roles.count == 1 }.forEach { character in
+            let takenRole = character.roles.first!
+            allowedRoles.remove(takenRole)
+        }
+        
+        if with.count == 2 {
+            // If no teammates can fullfil a build, that build is required
+            if let necessaryBuild = allowedBuilds.filter({ !with[0].builds.contains($0) && !with[1].builds.contains($0) }).first {
+                allowedBuilds = [necessaryBuild]
+            }
+            
+            // If no teammates can fullfil a role, that role is required
+            if let necessaryRole = allowedRoles.filter({ !with[0].roles.contains($0) && !with[1].roles.contains($0) }).first {
+                allowedRoles = [necessaryRole]
+            }
+        }
+        
+        let canFullfillAllowedBuild = builds.reduce(false, { $0 || allowedBuilds.contains($1) })
+        let canFullfillAllowedRole = roles.reduce(false, { $0 || allowedRoles.contains($1) })
+        
+        guard canFullfillAllowedBuild && canFullfillAllowedRole else {
+            return 0
+        }
+        
         let totalNumberOfMatches = selfMatchup.gamesWith
         let totalWins = selfMatchup.gamesWithWon
         
@@ -131,7 +165,25 @@ class Character: NSManagedObject, IntIdentifiableEntity, JSONInstantiableEntity 
             }
         }
         
-        let averageValue = values.reduce(0, +) / Double(values.count)
+        var averageValue = values.reduce(0, +) / Double(values.count)
+        
+        // Weight early picks differently for better drafting strategy
+        if banned.count == 2 && with.count < 2 {
+            // Give priority to captain and then carry picks
+            if allowedRoles.contains(.captain) && roles.contains(.captain) {
+                averageValue = min(1, averageValue + 0.1)
+            }
+            else if allowedRoles.contains(.carry) && roles.contains(.carry) {
+                averageValue = min(1, averageValue + 0.05)
+            }
+            
+            // Weight more flexible picks more highly
+            if with.count == 0 || (with.count == 1 && against.count == 1) {
+                let options = roles.count + builds.count
+                let bonus = max(0, Double(options) - 2)
+                averageValue = min(1, averageValue + bonus)
+            }
+        }
         
         return averageValue
     }
