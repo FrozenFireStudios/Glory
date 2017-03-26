@@ -1,7 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,12 +20,52 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgroundB" translatesAutoresizingMaskIntoConstraints="NO" id="b8y-4u-kOD">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fgX-hq-pHF">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="maw-sY-bh9">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <tabBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="Ogl-aa-hLN">
+                                            <rect key="frame" x="0.0" y="618" width="375" height="49"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <items/>
+                                        </tabBar>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="Ogl-aa-hLN" secondAttribute="bottom" id="3qH-R4-vtf"/>
+                                        <constraint firstAttribute="trailing" secondItem="Ogl-aa-hLN" secondAttribute="trailing" id="EAS-C3-A4A"/>
+                                        <constraint firstItem="Ogl-aa-hLN" firstAttribute="leading" secondItem="maw-sY-bh9" secondAttribute="leading" id="yia-Yl-3cM"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="fgX-hq-pHF" secondAttribute="trailing" id="2ig-3K-bYl"/>
+                            <constraint firstItem="b8y-4u-kOD" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="NGv-bH-ScE"/>
+                            <constraint firstItem="fgX-hq-pHF" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="NiN-Ef-hSD"/>
+                            <constraint firstItem="fgX-hq-pHF" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="c4G-A4-vh5"/>
+                            <constraint firstAttribute="trailing" secondItem="b8y-4u-kOD" secondAttribute="trailing" id="dDs-Il-KIh"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="fgX-hq-pHF" secondAttribute="bottom" id="do1-Uy-M9D"/>
+                            <constraint firstItem="b8y-4u-kOD" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="eVL-cs-js7"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="b8y-4u-kOD" secondAttribute="bottom" id="vPC-UF-W52"/>
+                        </constraints>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="BackgroundB" width="804" height="1350"/>
+    </resources>
 </document>
