@@ -8,25 +8,6 @@
 
 import UIKit
 
-/*
- 
- ________________
- |First Team Ban| // Title gives current step
- |              |
- | x o        x | // Team A/B on each side. Shows ban and current picks.
- |              |
- | [] []  [] [] | // Heros to pick, recommended in their own row
- |              |
- | [] []  [] [] | // Rest of heroes to pick.
- | [] []  [] [] | // Banned/Picked heroes are just not shown.
- | [] []  [] [] |
- | [] []  [] [] |
- | [] []  [] [] |
- |              |
- |______________|
- 
- */
-
 class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     let draft: Draft
@@ -47,33 +28,25 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        titleLabel.text = "Ban a Hero"
-        
         view.addSubview(backgroundImageView)
         view.addSubview(backgroundBlurView)
         backgroundBlurView.contentView.addSubview(vibrancyView)
-        view.addSubview(cancelButton)
+        view.addSubview(doneButton)
         view.addSubview(titleLabel)
-        view.addSubview(picksView)
-        picksView.addSubview(teamAPicksStack)
-        picksView.addSubview(teamBPicksStack)
         view.addSubview(heroesCollection)
+        view.addSubview(finishedView)
         
-        let picksBackgroundView = UIView()
-        picksBackgroundView.translatesAutoresizingMaskIntoConstraints = false
-        picksBackgroundView.backgroundColor = UIColor(white: 1.0, alpha: 0.25)
         vibrancyView.contentView.addSubview(picksBackgroundView)
+        view.addSubview(picksView)
         
         let views: [String:UIView] = [
             "background": backgroundImageView,
             "backgroundBlur": backgroundBlurView,
             "vibrancy": vibrancyView,
-            "cancel": cancelButton,
+            "done": doneButton,
             "title": titleLabel,
             "picks": picksView,
             "heroes": heroesCollection,
-            "teamA": teamAPicksStack,
-            "teamB": teamBPicksStack
         ]
         
         NSLayoutConstraint.activeConstraintsWithFormat("H:|[background]|", views: views)
@@ -89,21 +62,25 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
         picksBackgroundView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         picksBackgroundView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         picksBackgroundView.bottomAnchor.constraint(equalTo: picksView.bottomAnchor).isActive = true
-        
-        NSLayoutConstraint.activeConstraintsWithFormat("H:|[teamA]-(>=Padding)-[teamB]|", views: views)
-        NSLayoutConstraint.activeConstraintsWithFormat("V:|-(Padding)-[teamA]-(Padding)-|", views: views)
-        NSLayoutConstraint.activeConstraintsWithFormat("V:|-(Padding)-[teamB]-(Padding)-|", views: views)
-        teamAPicksStack.heightAnchor.constraint(equalToConstant: 36.0).isActive = true
-        
+                
         NSLayoutConstraint.activeConstraintsWithFormat("H:|-(Margin)-[title]-(Margin)-|", views: views)
-        NSLayoutConstraint.activeConstraintsWithFormat("H:|[cancel(==68.0)]", views: views)
+        NSLayoutConstraint.activeConstraintsWithFormat("H:|[done(==68.0)]", views: views)
         NSLayoutConstraint.activeConstraintsWithFormat("H:|-(Margin)-[picks]-(Margin)-|", views: views)
         NSLayoutConstraint.activeConstraintsWithFormat("H:|[heroes]|", views: views)
         
         titleLabel.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor, constant: CGFloat(FFPadding)).isActive = true
-        NSLayoutConstraint.activeConstraintsWithFormat("V:|[cancel(==88.0)]", views: views)
+        NSLayoutConstraint.activeConstraintsWithFormat("V:|[done(==88.0)]", views: views)
         NSLayoutConstraint.activeConstraintsWithFormat("V:[title]-(Margin)-[picks]-(Margin)-[heroes]", views: views)
         heroesCollection.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor).isActive = true
+        
+        finishedView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        finishedView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        updateDraft()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -114,7 +91,7 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
     // MARK: - Actions
     //==========================================================================
     
-    func cancel() {
+    func done() {
         dismiss(animated: true, completion: nil)
     }
     
@@ -133,8 +110,25 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
     
     func updateDraft() {
         heroesCollection.reloadData()
+        
         updateTitle()
-        updateCurrentPicks()
+        
+        picksView.draft = draft
+        
+        if draft.isFinished {
+            finishedView.teamAPicks = draft.teamAPicks
+            finishedView.teamBPicks = draft.teamBPicks
+            
+            UIView.animate(withDuration: 0.25, animations: {
+                self.titleLabel.alpha = 0.0
+                self.doneButton.alpha = 0.0
+                self.picksView.alpha = 0.0
+                self.picksBackgroundView.alpha = 0.0
+                self.heroesCollection.alpha = 0.0
+                
+                self.finishedView.alpha = 1.0
+            })
+        }
     }
     
     func updateTitle() {
@@ -164,45 +158,6 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
         }
     }
     
-    func updateCurrentPicks() {
-        teamAPicksStack.arrangedSubviews.forEach {$0.removeFromSuperview()}
-        teamBPicksStack.arrangedSubviews.forEach {$0.removeFromSuperview()}
-        
-        if let teamABan = draft.teamABan {
-            addCharacterToTeamStack(stackView: teamAPicksStack, banned: true)(teamABan)
-        }
-        
-        if let teamBBan = draft.teamBBan {
-            addCharacterToTeamStack(stackView: teamBPicksStack, banned: true)(teamBBan)
-        }
-        
-        draft.teamAPicks.forEach(addCharacterToTeamStack(stackView: teamAPicksStack))
-        draft.teamBPicks.forEach(addCharacterToTeamStack(stackView: teamBPicksStack))
-    }
-    
-    func addCharacterToTeamStack(stackView: UIStackView, banned: Bool = false) -> ((Character) -> Void) {
-        let function: (Character) -> Void = { character in
-            let imageView = UIImageView(image: UIImage(named: character.smallIconName))
-            imageView.contentMode = .scaleAspectFill
-            imageView.clipsToBounds = true
-            
-            imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor).isActive = true
-            
-            imageView.layer.cornerRadius = self.teamAPicksStack.frame.height / 2.0
-            
-            stackView.addArrangedSubview(imageView)
-            
-            if banned {
-                let banView = UIImageView(image: #imageLiteral(resourceName: "ban"))
-                banView.translatesAutoresizingMaskIntoConstraints = false
-                imageView.addSubview(banView)
-                
-                NSLayoutConstraint.activeConstraintsWithFormat("H:|[ban]|", views: ["ban": banView])
-                NSLayoutConstraint.activeConstraintsWithFormat("V:|[ban]|", views: ["ban": banView])
-            }
-        }
-        return function
-    }
     
     private func downloadHeroIcons() {
         
@@ -232,7 +187,6 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
     let cellReuseIdentifier = "HeroCell"
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // TODO: Section 0 is recommended. Add decorative view to highlight them
         return 2
     }
     
@@ -280,18 +234,8 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     
     //==========================================================================
-    // MARK: - Views
+    // MARK: - Background
     //==========================================================================
-    
-    lazy var cancelButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setContentHuggingPriority(UILayoutPriorityRequired, for: .horizontal)
-        button.setTitle("Done", for: .normal)
-        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .title3)
-        button.addTarget(self, action: #selector(LiveDraftViewController.cancel), for: .primaryActionTriggered)
-        return button
-    }()
     
     lazy var backgroundImageView: UIImageView = {
         let imageView = UIImageView()
@@ -312,6 +256,20 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
         return effectView
     }()
     
+    //==========================================================================
+    // MARK: - Header
+    //==========================================================================
+    
+    lazy var doneButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setContentHuggingPriority(UILayoutPriorityRequired, for: .horizontal)
+        button.setTitle("Cancel", for: .normal)
+        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .title3)
+        button.addTarget(self, action: #selector(LiveDraftViewController.done), for: .primaryActionTriggered)
+        return button
+    }()
+    
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -323,31 +281,26 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
         return label
     }()
     
-    lazy var picksView: UIView = {
-        let view = UIView()
+    //==========================================================================
+    // MARK: - Current Picks
+    //==========================================================================
+    
+    lazy var picksView: DraftPicksView = {
+        let view = DraftPicksView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    lazy var teamAPicksStack: UIStackView = {
-        let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.setContentHuggingPriority(UILayoutPriorityRequired, for: .horizontal)
-        stackView.axis = .horizontal
-        stackView.spacing = CGFloat(FFHalfPadding)
-        stackView.semanticContentAttribute = .forceLeftToRight
-        return stackView
+    lazy var picksBackgroundView: UIView = {
+        let picksBackgroundView = UIView()
+        picksBackgroundView.translatesAutoresizingMaskIntoConstraints = false
+        picksBackgroundView.backgroundColor = UIColor(white: 1.0, alpha: 0.25)
+       return picksBackgroundView
     }()
     
-    lazy var teamBPicksStack: UIStackView = {
-        let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.setContentHuggingPriority(UILayoutPriorityRequired, for: .horizontal)
-        stackView.axis = .horizontal
-        stackView.spacing = CGFloat(FFHalfPadding)
-        stackView.semanticContentAttribute = .forceRightToLeft
-        return stackView
-    }()
+    //==========================================================================
+    // MARK: - CollectionView
+    //==========================================================================
     
     lazy var layout: LiveDraftFlowLayout = {
         let layout = LiveDraftFlowLayout()
@@ -374,5 +327,20 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
         collectionView.register(HeroesCollectionTitleView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: UICollectionElementKindSectionHeader)
         
         return collectionView
+    }()
+    
+    //==========================================================================
+    // MARK: - Finished View
+    //==========================================================================
+    
+    lazy var finishedView: FinishedDraftView = {
+        let view = FinishedDraftView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.alpha = 0.0
+        
+        view.addTarget(self, action: #selector(LiveDraftViewController.done), for: .primaryActionTriggered)
+        
+        return view
     }()
 }

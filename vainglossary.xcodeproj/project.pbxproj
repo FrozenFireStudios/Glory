@@ -42,6 +42,8 @@
 		EF250FF01E80C5B3009BC013 /* Character+Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF250FEF1E80C5B3009BC013 /* Character+Images.swift */; };
 		EF4745841E81D9DD0009FAF8 /* HeroTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4745831E81D9DD0009FAF8 /* HeroTableViewCell.swift */; };
 		EF4745861E81DB2C0009FAF8 /* UIColor+Glory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4745851E81DB2C0009FAF8 /* UIColor+Glory.swift */; };
+		EF64B5F01E87555D00EF461E /* FinishedDraftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF64B5EF1E87555D00EF461E /* FinishedDraftView.swift */; };
+		EF64B5F21E875A2B00EF461E /* DraftPicksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF64B5F11E875A2B00EF461E /* DraftPicksView.swift */; };
 		EFAAA34A1E7DF44B00C18D48 /* NSLayoutConstraint+FFStandardMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAAA3491E7DF44B00C18D48 /* NSLayoutConstraint+FFStandardMetrics.swift */; };
 		EFAAA34C1E7DFFBD00C18D48 /* LiveDraftIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAAA34B1E7DFFBD00C18D48 /* LiveDraftIntroViewController.swift */; };
 		EFAAA34E1E7E08F500C18D48 /* HeroCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAAA34D1E7E08F500C18D48 /* HeroCollectionViewCell.swift */; };
@@ -104,6 +106,8 @@
 		EF250FEF1E80C5B3009BC013 /* Character+Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Character+Images.swift"; sourceTree = "<group>"; };
 		EF4745831E81D9DD0009FAF8 /* HeroTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroTableViewCell.swift; sourceTree = "<group>"; };
 		EF4745851E81DB2C0009FAF8 /* UIColor+Glory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Glory.swift"; sourceTree = "<group>"; };
+		EF64B5EF1E87555D00EF461E /* FinishedDraftView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishedDraftView.swift; sourceTree = "<group>"; };
+		EF64B5F11E875A2B00EF461E /* DraftPicksView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraftPicksView.swift; sourceTree = "<group>"; };
 		EFAAA3491E7DF44B00C18D48 /* NSLayoutConstraint+FFStandardMetrics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+FFStandardMetrics.swift"; sourceTree = "<group>"; };
 		EFAAA34B1E7DFFBD00C18D48 /* LiveDraftIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveDraftIntroViewController.swift; sourceTree = "<group>"; };
 		EFAAA34D1E7E08F500C18D48 /* HeroCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -291,6 +295,8 @@
 			children = (
 				EFAAA34B1E7DFFBD00C18D48 /* LiveDraftIntroViewController.swift */,
 				EFD138DB1E70FE8400ECC059 /* LiveDraftViewController.swift */,
+				EF64B5EF1E87555D00EF461E /* FinishedDraftView.swift */,
+				EF64B5F11E875A2B00EF461E /* DraftPicksView.swift */,
 				EFAAA34D1E7E08F500C18D48 /* HeroCollectionViewCell.swift */,
 				EF04F9461E84B61C00DF004E /* HeroesCollectionTitleView.swift */,
 				EF04F9481E84B78300DF004E /* LiveDraftFlowLayout.swift */,
@@ -441,6 +447,7 @@
 				2CF1DB461E6FB654006AA193 /* Participant.swift in Sources */,
 				2CF1DB551E6FBFD3006AA193 /* ResettingStack.swift in Sources */,
 				EF250FF01E80C5B3009BC013 /* Character+Images.swift in Sources */,
+				EF64B5F21E875A2B00EF461E /* DraftPicksView.swift in Sources */,
 				2CF1DB171E62A0EF006AA193 /* Relationship.swift in Sources */,
 				2CF1DB1F1E6FB158006AA193 /* VainGlory.xcdatamodeld in Sources */,
 				2CF1DB401E6FB654006AA193 /* MatchUp.swift in Sources */,
@@ -451,6 +458,7 @@
 				2CF1DAFD1E623303006AA193 /* Result.swift in Sources */,
 				2CF1DB491E6FB8B7006AA193 /* Entity.swift in Sources */,
 				2CF1DADB1E622E84006AA193 /* AppDelegate.swift in Sources */,
+				EF64B5F01E87555D00EF461E /* FinishedDraftView.swift in Sources */,
 				EFAAA34C1E7DFFBD00C18D48 /* LiveDraftIntroViewController.swift in Sources */,
 				2CF1DB191E62A105006AA193 /* Object.swift in Sources */,
 				2CAEFE0C1E6FC2F400ED702C /* NSManagedObjectContext+PerformAndReturn.swift in Sources */,

@@ -34,8 +34,6 @@ class HeroesViewController: UITableViewController, NSFetchedResultsControllerDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadingIndicator.startAnimating()
-        
         view.addSubview(loadingIndicator)
         
         loadingIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -52,6 +50,11 @@ class HeroesViewController: UITableViewController, NSFetchedResultsControllerDel
         tableView.register(HeroTableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         
         try? heroResultsController.performFetch()
+        
+        // Start loading if we don't have data.
+        if heroResultsController.sections?.isEmpty ?? true {
+            loadingIndicator.startAnimating()
+        }
     }
     
     //==========================================================================

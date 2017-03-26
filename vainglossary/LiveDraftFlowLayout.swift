@@ -12,7 +12,7 @@ class RecommendedBackgroundView: UICollectionReusableView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = UIColor(white: 0.0, alpha: 0.2)
+        self.backgroundColor = UIColor(white: 0.0, alpha: 0.25)
     }
     
     required init?(coder aDecoder: NSCoder) {

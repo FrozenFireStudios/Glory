@@ -22,6 +22,11 @@ class Draft {
     
     private(set) var isNextPickTeamA = true
     
+    /// True after the draft is finished
+    var isFinished: Bool {
+        return pickedCharacters.count == 8
+    }
+    
     var recommendationCount = 6
     
     var bans: [Character] {
