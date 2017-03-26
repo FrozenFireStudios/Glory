@@ -34,6 +34,14 @@ class HeroesViewController: UITableViewController, NSFetchedResultsControllerDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loadingIndicator.startAnimating()
+        
+        view.addSubview(loadingIndicator)
+        
+        loadingIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        loadingIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        
+        
         tableView.backgroundView = nil
         tableView.backgroundColor = .darkBackground
         
@@ -81,7 +89,20 @@ class HeroesViewController: UITableViewController, NSFetchedResultsControllerDel
     //==========================================================================
     // MARK: - NSFetchedResultsControllerDelegate
     //==========================================================================
+    
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.reloadData()
+        loadingIndicator.stopAnimating()
     }
+    
+    //==========================================================================
+    // MARK: - Views
+    //==========================================================================
+    
+    lazy var loadingIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        indicator.hidesWhenStopped = true
+        return indicator
+    }()
 }
