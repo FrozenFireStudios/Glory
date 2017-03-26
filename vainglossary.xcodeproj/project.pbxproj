@@ -40,6 +40,7 @@
 		EF04F9471E84B61C00DF004E /* HeroesCollectionTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF04F9461E84B61C00DF004E /* HeroesCollectionTitleView.swift */; };
 		EF04F9491E84B78300DF004E /* LiveDraftFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF04F9481E84B78300DF004E /* LiveDraftFlowLayout.swift */; };
 		EF250FF01E80C5B3009BC013 /* Character+Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF250FEF1E80C5B3009BC013 /* Character+Images.swift */; };
+		EF3A5CBA1E8768F40034D0B5 /* IntrinsicButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3A5CB91E8768F40034D0B5 /* IntrinsicButton.swift */; };
 		EF4745841E81D9DD0009FAF8 /* HeroTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4745831E81D9DD0009FAF8 /* HeroTableViewCell.swift */; };
 		EF4745861E81DB2C0009FAF8 /* UIColor+Glory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4745851E81DB2C0009FAF8 /* UIColor+Glory.swift */; };
 		EF64B5F01E87555D00EF461E /* FinishedDraftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF64B5EF1E87555D00EF461E /* FinishedDraftView.swift */; };
@@ -104,6 +105,7 @@
 		EF04F9461E84B61C00DF004E /* HeroesCollectionTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroesCollectionTitleView.swift; sourceTree = "<group>"; };
 		EF04F9481E84B78300DF004E /* LiveDraftFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveDraftFlowLayout.swift; sourceTree = "<group>"; };
 		EF250FEF1E80C5B3009BC013 /* Character+Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Character+Images.swift"; sourceTree = "<group>"; };
+		EF3A5CB91E8768F40034D0B5 /* IntrinsicButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntrinsicButton.swift; sourceTree = "<group>"; };
 		EF4745831E81D9DD0009FAF8 /* HeroTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroTableViewCell.swift; sourceTree = "<group>"; };
 		EF4745851E81DB2C0009FAF8 /* UIColor+Glory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Glory.swift"; sourceTree = "<group>"; };
 		EF64B5EF1E87555D00EF461E /* FinishedDraftView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishedDraftView.swift; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 				EFF986721E83582900B8584C /* FFBorderButton.swift */,
 				EF250FEF1E80C5B3009BC013 /* Character+Images.swift */,
 				EF4745851E81DB2C0009FAF8 /* UIColor+Glory.swift */,
+				EF3A5CB91E8768F40034D0B5 /* IntrinsicButton.swift */,
 			);
 			name = Conveniences;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 				EFD138E01E70FEB600ECC059 /* MatchHistoryViewController.swift in Sources */,
 				2CF1DB1B1E62A234006AA193 /* ObjectType.swift in Sources */,
 				2CF1DB531E6FBFD3006AA193 /* CoreDataStack.swift in Sources */,
+				EF3A5CBA1E8768F40034D0B5 /* IntrinsicButton.swift in Sources */,
 				2CF1DB051E62390F006AA193 /* URLPathComponent.swift in Sources */,
 				EFAAA34A1E7DF44B00C18D48 /* NSLayoutConstraint+FFStandardMetrics.swift in Sources */,
 				EF04F9491E84B78300DF004E /* LiveDraftFlowLayout.swift in Sources */,

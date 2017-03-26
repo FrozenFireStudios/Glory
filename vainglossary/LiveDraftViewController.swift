@@ -62,9 +62,9 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
         picksBackgroundView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         picksBackgroundView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         picksBackgroundView.bottomAnchor.constraint(equalTo: picksView.bottomAnchor).isActive = true
-                
-        NSLayoutConstraint.activeConstraintsWithFormat("H:|-(Margin)-[title]-(Margin)-|", views: views)
-        NSLayoutConstraint.activeConstraintsWithFormat("H:|[done(==68.0)]", views: views)
+        
+        titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        NSLayoutConstraint.activeConstraintsWithFormat("H:|[done]-(Margin)-[title]-(>=Margin)-|", views: views)
         NSLayoutConstraint.activeConstraintsWithFormat("H:|-(Margin)-[picks]-(Margin)-|", views: views)
         NSLayoutConstraint.activeConstraintsWithFormat("H:|[heroes]|", views: views)
         
@@ -81,6 +81,16 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
         super.viewWillAppear(animated)
         
         updateDraft()
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        
+        if let layout = heroesCollection.collectionViewLayout as? LiveDraftFlowLayout {
+            layout.itemSize = itemSize(forSize: size, itemSpacing: FFPadding)
+            
+            layout.invalidateLayout()
+        }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -199,7 +209,7 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
         
         let character = characters(section: indexPath.section)[indexPath.row]
         
-        cell.imageView.image = UIImage(named: character.largeIconName)
+        cell.imageView.image = UIImage(named: character.smallIconName)
         
         return cell
     }
@@ -233,6 +243,50 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
         return .zero
     }
     
+    func itemSize(forSize size: CGSize, itemSpacing: Double) -> CGSize {
+        
+        // itemHeight is fixed for now because it flows vertically. This is a
+        // place for something like content based height but not min/max
+        //let itemHeight = 64.0
+        
+        // Set these min/max to whatever makes sense for the cell at hand while
+        // ensuring content is readable and acceptable
+        let minWidth = 80.0
+        let maxWidth = 120.0
+        
+        // This is the available width at the start minus some margins
+        let startingWidth = Double(size.width) - FFDoubleMargin // This should be section insets
+        
+        // Make sure our starting itemWidth is within our min/max
+        var itemWidth = min(maxWidth, max(minWidth, startingWidth))
+        
+        // If we've got room to work with lets process
+        if startingWidth > maxWidth {
+            var numberOfItems = 1.0
+            
+            var possibleWidth = startingWidth
+            
+            // As long as our possible width is above the min we can keep trying
+            // to split the possibleWidth into multiple items
+            while possibleWidth > minWidth {
+                numberOfItems += 1.0
+                
+                // Adjust the availableWidth by space between items
+                let availableWidth = startingWidth - (itemSpacing * (numberOfItems - 1))
+                
+                // Get the width with the current number of items
+                possibleWidth = (availableWidth / numberOfItems)
+                
+                // If the possibleWidth falls within minWidth, its the new width
+                if possibleWidth >= minWidth && possibleWidth <= maxWidth {
+                    itemWidth = possibleWidth
+                }
+            }
+        }
+        
+        return CGSize(width: CGFloat(itemWidth), height: CGFloat(itemWidth))
+    }
+    
     //==========================================================================
     // MARK: - Background
     //==========================================================================
@@ -260,13 +314,18 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
     // MARK: - Header
     //==========================================================================
     
-    lazy var doneButton: UIButton = {
-        let button = UIButton(type: .system)
+    lazy var doneButton: IntrinsicButton = {
+        let button = IntrinsicButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setContentHuggingPriority(UILayoutPriorityRequired, for: .horizontal)
+        button.setContentCompressionResistancePriority(UILayoutPriorityRequired, for: .horizontal)
+        
         button.setTitle("Cancel", for: .normal)
-        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .title3)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 14.0)
+        button.titleEdgeInsets = UIEdgeInsets(top: 0.0, left: CGFloat(FFMargin), bottom: 0.0, right: 0.0)
+        
         button.addTarget(self, action: #selector(LiveDraftViewController.done), for: .primaryActionTriggered)
+        
         return button
     }()
     
@@ -277,6 +336,10 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
         label.font = UIFont.systemFont(ofSize: 28.0, weight: UIFontWeightThin)
         label.textAlignment = .center
         label.textColor = .lightGrayText
+        
+        label.allowsDefaultTighteningForTruncation = true
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.25
         
         return label
     }()
@@ -305,7 +368,10 @@ class LiveDraftViewController: UIViewController, UICollectionViewDataSource, UIC
     lazy var layout: LiveDraftFlowLayout = {
         let layout = LiveDraftFlowLayout()
         
-        layout.itemSize = CGSize(width: 100, height: 100)
+        layout.itemSize = self.itemSize(forSize: self.view.bounds.size, itemSpacing: FFPadding)
+        
+        layout.minimumLineSpacing = CGFloat(FFPadding)
+        layout.minimumInteritemSpacing = CGFloat(FFPadding)
         
         layout.sectionInset = UIEdgeInsets(top: CGFloat(FFMargin), left: CGFloat(FFMargin), bottom: CGFloat(FFMargin), right: CGFloat(FFMargin))
         
