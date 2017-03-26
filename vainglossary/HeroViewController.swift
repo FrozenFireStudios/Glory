@@ -33,19 +33,23 @@ class HeroViewController: UIViewController {
         view.addSubview(backgroundImageView)
         view.addSubview(detailBackgroundView)
         
-        let bestAgainst = (try? hero.bestAgainst()) ?? []
-        let worstAgainst = (try? hero.bestCounters()) ?? []
-        
-        let bestAgainstStackView = relatedHeroesStackView(heroes: bestAgainst)
-        let worstAgainstStackView = relatedHeroesStackView(heroes: worstAgainst)
+        // TODO: Longterm these stacks should be a collectionView. But the 
+        // scrolling needs to move the blur as well and probably parallax the 
+        // background nicely.
+        let bestAgainstStackView = relatedHeroesStackView(heroes: hero.bestAgainst(count: 4))
+        let worstAgainstStackView = relatedHeroesStackView(heroes: hero.bestCounters(count: 4))
+        let bestWithStackView = relatedHeroesStackView(heroes: hero.bestWith(count: 4))
         
         let bestAgainstLabel = relatedHeroesLabel(title: "Best Against:")
         let worstAgainstLabel = relatedHeroesLabel(title: "Countered By:")
+        let bestWithLabel = relatedHeroesLabel(title: "Best With:")
         
         detailBackgroundView.addSubview(bestAgainstLabel)
         detailBackgroundView.addSubview(bestAgainstStackView)
         detailBackgroundView.addSubview(worstAgainstLabel)
         detailBackgroundView.addSubview(worstAgainstStackView)
+        detailBackgroundView.addSubview(bestWithLabel)
+        detailBackgroundView.addSubview(bestWithStackView)
         
         let views: [String:UIView] = [
             "background": backgroundImageView,
@@ -53,7 +57,9 @@ class HeroViewController: UIViewController {
             "bestAgainstLabel": bestAgainstLabel,
             "bestAgainstStack": bestAgainstStackView,
             "worstAgainstLabel": worstAgainstLabel,
-            "worstAgainstStack": worstAgainstStackView
+            "worstAgainstStack": worstAgainstStackView,
+            "bestWithLabel": bestWithLabel,
+            "bestWithStack": bestWithStackView,
         ]
         
         NSLayoutConstraint.activeConstraintsWithFormat("H:|[background]|", views: views)
@@ -62,12 +68,14 @@ class HeroViewController: UIViewController {
         NSLayoutConstraint.activeConstraintsWithFormat("H:|-(Margin)-[bestAgainstStack]-(>=Margin)-|", views: views)
         NSLayoutConstraint.activeConstraintsWithFormat("H:|-(Margin)-[worstAgainstLabel]-(Margin)-|", views: views)
         NSLayoutConstraint.activeConstraintsWithFormat("H:|-(Margin)-[worstAgainstStack]-(>=Margin)-|", views: views)
+        NSLayoutConstraint.activeConstraintsWithFormat("H:|-(Margin)-[bestWithLabel]-(Margin)-|", views: views)
+        NSLayoutConstraint.activeConstraintsWithFormat("H:|-(Margin)-[bestWithStack]-(>=Margin)-|", views: views)
         
         NSLayoutConstraint.activeConstraintsWithFormat("V:|[background]", views: views)
         detailBackgroundView.topAnchor.constraint(greaterThanOrEqualTo: backgroundImageView.bottomAnchor, constant: -128.0).isActive = true
-        detailBackgroundView.topAnchor.constraint(greaterThanOrEqualTo: view.centerYAnchor).isActive = true
+        detailBackgroundView.heightAnchor.constraint(greaterThanOrEqualToConstant: 320).isActive = true
         detailBackgroundView.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor).isActive = true
-        NSLayoutConstraint.activeConstraintsWithFormat("V:|-(Margin)-[bestAgainstLabel]-(Padding)-[bestAgainstStack(==worstAgainstStack)]-(Margin)-[worstAgainstLabel]-(Padding)-[worstAgainstStack(==bestAgainstStack)]-(Margin)-|", views: views)
+        NSLayoutConstraint.activeConstraintsWithFormat("V:|-(Margin)-[bestAgainstLabel]-(Padding)-[bestAgainstStack(==worstAgainstStack)]-(Margin)-[worstAgainstLabel]-(Padding)-[worstAgainstStack(==bestAgainstStack)]-(Margin)-[bestWithLabel]-(Padding)-[bestWithStack(==bestAgainstStack)]-(Margin)-|", views: views)
     }
     
     //==========================================================================
@@ -89,6 +97,7 @@ class HeroViewController: UIViewController {
     lazy var detailBackgroundView: UIVisualEffectView = {
         let effectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
         effectView.translatesAutoresizingMaskIntoConstraints = false
+        effectView.setContentHuggingPriority(UILayoutPriorityRequired, for: .vertical)
         return effectView
     }()
     

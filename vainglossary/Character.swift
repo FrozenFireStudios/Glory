@@ -67,22 +67,22 @@ class Character: NSManagedObject, IntIdentifiableEntity, JSONInstantiableEntity 
         return matchUps?.filter { $0.otherCharacter == self }.first
     }
     
-    func bestAgainst(count: Int = 3) throws -> [Character] {
+    func bestAgainst(count: Int = 3) -> [Character] {
         let sorted = (matchUps ?? []).sorted(by: { $0.againstValue > $1.againstValue })
         return sorted.prefix(count).map { $0.otherCharacter }
     }
     
-    func bestCounters(count: Int = 3) throws -> [Character] {
+    func bestCounters(count: Int = 3) -> [Character] {
         let sorted = (matchUps ?? []).sorted(by: { $0.againstValue < $1.againstValue })
         return sorted.prefix(count).map { $0.otherCharacter }
     }
     
-    func bestWith(count: Int = 3) throws -> [Character] {
+    func bestWith(count: Int = 3) -> [Character] {
         let sorted = (matchUps ?? []).sorted(by: { $0.withValue > $1.withValue })
         return sorted.prefix(count).map { $0.otherCharacter }
     }
     
-    func worstWith(count: Int = 3) throws -> [Character] {
+    func worstWith(count: Int = 3) -> [Character] {
         let sorted = (matchUps ?? []).sorted(by: { $0.withValue < $1.withValue })
         return sorted.prefix(count).map { $0.otherCharacter }
     }
