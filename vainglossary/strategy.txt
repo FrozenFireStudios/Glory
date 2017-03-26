@@ -1,49 +1,59 @@
-Update 1.14 brings Draft Mode to Ranked play! Draft empowers players to use their game knowledge more effectively and adds an element of strategy that heightens the game experience for everyone. Read below to find out how Draft Mode changes the game for you!
+Drafting 101
 
-UNIQUE FEEL TO EVERY GAME
+TEAM COMPOSITION
 
-Draft starts by letting the players make the big decisions. Each draft phase will be different and fresh, resulting in countless combinations!
+The hero you bring into battle comes with his or her own strengths and weaknesses. Great teams are built by choosing heroes that improve each other’s strengths and help cover each other’s weaknesses.
 
-The first stage of Draft Mode will assign each player on a team either first, second or third pick. First pick is the team captain who will decide the ban for their team. Captains tap on a hero to select them. A second tap will lock-in that ban choice. A banned hero cannot be played by either team.
+These guidelines should give you an idea which heroes are recommended in the Jungle and the Lane. They should also give you a broader understanding of how each of the primary roles work together in a team.
 
-Draft Mode continues with the pick stage. Hero selections are exclusive in this phase. Once a hero is chosen, it is not available to any other player (on either team).
+Step 1
 
-NO NEED TO INSTALOCK
+Banning Phase
 
-Though you are part of a team, you are the only one picking when it’s your turn to draft. Hero selection is your choice. Use your time wisely.
+Ban a hero that is currently strong in the current meta or a hero that you do not want to be played in the match. Priority bans tend to change from patch to patch so it is up to you to research the patch notes and/or watching streamers to find which heroes is highly recommend.
 
-Though the draft follows a 1:2:2:1 picking format, each player has their own turn to select the hero of their choice. This ensures two players are never competing to see who can pick and lock a hero first. Players are given 25 seconds to ban or pick a hero.
+Step 2 Role Assignment
 
-This phase starts with blue side’s captain selecting the first pick for their team. Once a hero has been selected, priority moves to the red side. The overall draft order looks like this:
+Whether you are in a full party or in solo que indicating which roles each individual is important to a successful draft.
 
- 
+There are three main roles in Vainglory currently
 
-DraftOrder-600px
 
-COMMUNICATE YOUR INTENTIONS
+THE CAPTAIN
+Goal: Protect the Carry
 
-Draft Mode empowers players to be more expressive during hero select.
+The captain is the leader and shot-caller of the team. This role’s job is directing real-time team tactics and, most importantly, protecting your carry from harm. And while we deserve any jokes at our expense about another name change (RIP roamer), the choice of “captain” isn’t just cosmetic. We have a long-term vision for how the captain will play a unique in-game role on a team, with a markedly different mindset, options and incentives. Update 2.0 is only the very tip of the iceberg for what we have in store for captains in Vainglory.
 
-Throughout the Hero Select Phase, players are able to tap on a hero to give a thumbs up or thumbs down. Allies can see these indicators, immediately delivering feedback throughout the draft process. This will help you suggest a ban or a pick to allies and formulate a thoughtful hero comp, as well as dissuade allies from selecting a hero that won’t fit in well.
+Those who like to lead, absorb damage and shield allies from harm should be the captain.
 
-At any time during hero selection, a player can indicate to his team which position he intends to play via the familiar role selections of LANE, JUNGLE or ROAM. Additionally, players will also be able to show whether they intend to build crystal, weapon or utility items on that hero. Let your allies know how you plan to build, and avoid those double-weapon or double-crystal comps that are easy to counter.
 
-DraftRole-600px
+THE CARRY
+Goal: Secure Kills
 
- OPENING EVERY DOOR 
+The carry is the team’s gold-hungry playmaker. This player starts in lane to earn money faster and build items quicker — all for the express purpose of killing as many enemies as possible. The carry is the most dangerous team member, but it’s also the most fragile. As such, the carry should always be in close proximity to the captain or a turret cannon. If the carry is alone or positioned too far forward, it likely won’t end well.
 
-Draft Mode is changing so much about Ranked play, but we couldn’t let pick order hurt the plans of the brilliant schemers out there.
+Those who like to live on the knife’s edge of death or superstardom should be the carry.
 
-After each player has picked a hero, the Swap Phase begins. You can suggest a swap with an ally, and if they consent, you’ll switch heroes. Swapping is crucial for prioritizing hero picks early in the draft — even if the player making the pick isn’t the player who intends to use that hero. These trades are even allowed if one of the trading players hasn’t unlocked one of the heroes being swapped!
 
-DRAFT MODE INCLUDED IN PRIVATE MATCHES
+THE JUNGLER
+Goal: Menace the Enemy Carry
 
-Draft Mode will not be exclusive to Ranked queue. Allowing draft as a Private game mode will better support the thriving tournament scene and make this level of strategic preparation easier to practice and utilize by everyone. You’ll find the draft option listed as “PRIVATE – DRAFT” in your Private game drop-down menu.
+The jungler prowls the terrain beneath the lane, looking to threaten or ambush vulnerable enemies. The jungler is halfway between the captain and the carry — durable enough to offer some protection and strong enough to stand and fight — but with neither as a specialty. The jungler is most effective when breaking through the enemy front line and creating chaos (or death) for the enemy carry.
 
-SOLO QUEUE IMPROVEMENTS
+Those who like to fearlessly get in the enemy’s face should be the jungler.
 
-Because captains are chosen randomly, each player will have the opportunity to experience each stage of Draft Mode. You will be assigned either first, second or third pick for your team. This predetermined pick order provides structure to change three players into a team. Respect and follow the pick order, allowing players above you to pick their roles first.
 
-The number of unlocked heroes required for ranked is also increasing. Because there are 2 bans and 6 unique picks, players must have unlocked at least 8 heroes to queue for Ranked play. It’s best to feel comfortable playing as any role before diving into Ranked queue!
 
-Draft Mode is coming in Update 1.14 but planning and theorycrafting starts today! Start deciding how Draft Mode will work in your favor now!
+3. Picking a hero
+
+Side A
+If you are on A side of the draft you are going to have first pick. A typical strategy is to pick a hero that is a captain or a hero that can be used in multiple roles. This will give the enemy team the least amount of information and harder to counter draft.
+
+Side B
+If you are on B side you will pick your first two heroes after the first selection from side A has been locked in. Depending on side A's hero selection there are two typical strategies. 1. Counter pick their first hero selection or pick up the desired Carry and Captain your team would like to play.
+
+Side A
+To round out Side A's team composition you will have two picks. These picks should be used to counter the first two picks from Side B. Side A has the advantage of picking their desired hero first.
+
+Side B
+To round out Side B's team composition you will have the final pick of the draft. The final pick should be used to counter side A's last two hero selections. This is side B's advantage of the draft. knowing Side A's complete composition and being able to round out your team composition with the final pick.

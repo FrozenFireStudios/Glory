@@ -28,9 +28,14 @@ class DraftStrategyViewController: UIViewController {
         
         backgroundImageView.image = #imageLiteral(resourceName: "BackgroundB")
         
-        if let path = Bundle.main.path(forResource: "strategy", ofType: "txt") {
-            let strategyText = try? String(contentsOfFile: path)
-            textView.text = strategyText ?? "Failed to load strategy"
+        if let url = Bundle.main.url(forResource: "strategy", withExtension: "rtf"),
+            let data = try? Data(contentsOf: url),
+            let attributedString = try? NSAttributedString(data: data, options: [NSDocumentTypeDocumentAttribute:NSRTFTextDocumentType], documentAttributes: nil)
+        {
+            textView.attributedText = attributedString
+        }
+        else {
+            textView.text = "Failed to load Draft Strategy Guide."
         }
         
         view.addSubview(backgroundImageView)
@@ -40,7 +45,7 @@ class DraftStrategyViewController: UIViewController {
         let views: [String:UIView] = [
             "background": backgroundImageView,
             "backgroundBlur": backgroundBlurView,
-            "text": textView
+            "text": textView,
         ]
         
         NSLayoutConstraint.activeConstraintsWithFormat("H:|[background]|", views: views)
@@ -50,10 +55,15 @@ class DraftStrategyViewController: UIViewController {
         NSLayoutConstraint.activeConstraintsWithFormat("V:|[backgroundBlur]|", views: views)
         
         NSLayoutConstraint.activeConstraintsWithFormat("H:|[text]|", views: views)
-        textView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor).isActive = true
-        NSLayoutConstraint.activeConstraintsWithFormat("V:[text]|", views: views)
+        NSLayoutConstraint.activeConstraintsWithFormat("V:|[text]|", views: views)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         
-        textView.contentInset = UIEdgeInsetsMake(CGFloat(FFPadding), 0, 0, 0)
+        textView.contentInset = UIEdgeInsets(top: topLayoutGuide.length, left: 0, bottom: bottomLayoutGuide.length, right: 0)
+        textView.scrollIndicatorInsets = textView.contentInset
+        textView.contentOffset.y = -topLayoutGuide.length
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -83,6 +93,8 @@ class DraftStrategyViewController: UIViewController {
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.backgroundColor = .clear
         textView.textColor = .lightGrayText
+        textView.isEditable = false
+        textView.indicatorStyle = .white
         textView.font = UIFont.preferredFont(forTextStyle: .body)
         return textView
     }()

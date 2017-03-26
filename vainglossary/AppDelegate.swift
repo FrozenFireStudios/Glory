@@ -35,13 +35,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let heroesViewController = HeroesViewController(database: database)
         let liveDraftViewController = LiveDraftIntroViewController(database: database)
         
+        let draftStrategyNavController = UINavigationController(rootViewController: draftStrategyViewController)
+        draftStrategyNavController.navigationBar.barStyle = .black
+        
         let heroesNavController = UINavigationController(rootViewController: heroesViewController)
         heroesNavController.navigationBar.barStyle = .black
         
         let tabController = UITabBarController()
         tabController.tabBar.barStyle = .black
         tabController.viewControllers = [
-            draftStrategyViewController,
+            draftStrategyNavController,
             heroesNavController,
             liveDraftViewController,
         ]
