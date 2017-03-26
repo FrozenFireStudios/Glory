@@ -23,7 +23,7 @@ On the data side we would like to look into more advanced data techniques, inclu
 [![Ranked Draft](https://raw.githubusercontent.com/FrozenFireStudios/Glory/master/RankedDraftVideo.png)](https://vimeo.com/210173450)
 
 # iPhone
-<img src="https://raw.githubusercontent.com/FrozenFireStudios/Glory/master/DraftGuide.png" style="width: 50%; height: 50%"/>
-<img src="https://raw.githubusercontent.com/FrozenFireStudios/Glory/master/Hero.png" style="width: 50%; height: 50%"/>
-<img src="https://raw.githubusercontent.com/FrozenFireStudios/Glory/master/LiveDraft.png" style="width: 50%; height: 50%"/>
-<img src="https://raw.githubusercontent.com/FrozenFireStudios/Glory/master/GoodLuck.png" style="width: 50%; height: 50%"/>
+![Ranked Draft](https://raw.githubusercontent.com/FrozenFireStudios/Glory/master/DraftGuide.png)
+![Ranked Draft](https://raw.githubusercontent.com/FrozenFireStudios/Glory/master/Hero.png)
+![Ranked Draft](https://raw.githubusercontent.com/FrozenFireStudios/Glory/master/LiveDraft.png)
+![Ranked Draft](https://raw.githubusercontent.com/FrozenFireStudios/Glory/master/GoodLuck.png)
