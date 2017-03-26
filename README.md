@@ -15,3 +15,9 @@ The next step would be to allow a user to select their user name and the names o
 We would like to display more information about the characters and show their stats for different builds, as well as show information about the different items that can be bought.
 
 On the data side we would like to look into more advanced data techniques, including machine learning, to find ways to give even better recommendations. It would also be useful to keep track of different character power spikes to determine how aggressive the different comps are and take this into consideration when considering good counters to overall teams instead of just individual characters. We hope that in the future the MadGlory API will support ELO leaderboards for each region, so that we can have the backend automatically update it match up data from the best players in the world, and so that we can show these leaderboards in the iOS app.
+
+# Blitz
+[![Blitz](https://raw.githubusercontent.com/FrozenFireStudios/Glory/master/BlitzVideo.png)](https://vimeo.com/210173429)
+
+# Ranked Draft
+[![Ranked Draft](https://raw.githubusercontent.com/FrozenFireStudios/Glory/master/RankedDraftVideo.png)](https://vimeo.com/210173450)
